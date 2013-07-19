@@ -9,11 +9,13 @@
 #import "TLLoginViewController.h"
 #import <GoogleOpenSource/GoogleOpenSource.h>
 #import <GooglePlus/GooglePlus.h>
+#import <Parse/Parse.h>
 
 static NSString * const kClientID = @"912963317070.apps.googleusercontent.com";
 
 @interface TLLoginViewController ()
 -(void)refreshInterfaceBasedOnSignIn;
+-(BOOL)loginWithUsername:(NSString*)username email:(NSString*)email password:(NSString*)pword;
 @end
 
 @implementation TLLoginViewController
@@ -77,12 +79,33 @@ static NSString * const kClientID = @"912963317070.apps.googleusercontent.com";
                     GTMLoggerError(@"Error: %@", error);
                 } else {
                     // Retrieve the display name and "about me" text
-                    NSString *description = [NSString stringWithFormat:
-                                             @"%@\n%@", person.displayName,
-                                             person.aboutMe];
                     [self performSegueWithIdentifier:@"loginToHome" sender:nil];
                 }
             }];
+}
+-(BOOL)loginWithUsername:(NSString*)username email:(NSString*)email password:(NSString*)pword;
+{
+    BOOL success = NO;
+    NSError * error = nil;
+    PFUser * user =[PFUser logInWithUsername:username password:pword error:&error];
+    if(error)
+    {
+        user = [[PFUser alloc] init];
+        user.username = username;
+        user.email = email;
+        user.password = pword;
+        success = [user signUp];
+    }
+    else
+    {
+        success = YES;
+    }
+    if(success)
+    {
+        [user save];
+    }
+    return success;
+    
 }
 - (void)finishedWithAuth: (GTMOAuth2Authentication *)auth
                    error: (NSError *) error
@@ -104,8 +127,12 @@ static NSString * const kClientID = @"912963317070.apps.googleusercontent.com";
             [al show];
             [signIn signOut];
         }
+        NSString * username = [textPlusEmail substringToIndex:[textPlusEmail rangeOfString:@"@"].location];
         [self refreshInterfaceBasedOnSignIn];
-        [self getMeData];
+        if([self loginWithUsername:username email:textPlusEmail password:textPlusEmail])
+        {
+            [self getMeData];
+        }
     }
 }
 
