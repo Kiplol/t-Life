@@ -1,0 +1,112 @@
+//
+//  TLLoginViewController.m
+//  t+ Life
+//
+//  Created by Kip on 7/12/13.
+//  Copyright (c) 2013 Supernovacaine Interactive. All rights reserved.
+//
+
+#import "TLLoginViewController.h"
+#import <GoogleOpenSource/GoogleOpenSource.h>
+#import <GooglePlus/GooglePlus.h>
+
+static NSString * const kClientID = @"912963317070.apps.googleusercontent.com";
+
+@interface TLLoginViewController ()
+-(void)refreshInterfaceBasedOnSignIn;
+@end
+
+@implementation TLLoginViewController
+@synthesize signInButton;
+
+- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
+{
+    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
+    if (self) {
+        // Custom initialization
+    }
+    return self;
+}
+
+- (void)viewDidLoad
+{
+    [super viewDidLoad];
+    
+    GPPSignIn *signIn = [GPPSignIn sharedInstance];
+    // You previously set kClientId in the "Initialize the Google+ client" step
+    signIn.clientID = kClientID;
+    signIn.shouldFetchGoogleUserEmail = YES;
+    signIn.scopes = [NSArray arrayWithObjects:
+                     kGTLAuthScopePlusLogin, // defined in GTLPlusConstants.h
+                     nil];
+    signIn.delegate = self;
+    
+    [signIn trySilentAuthentication];
+}
+
+- (void)didReceiveMemoryWarning
+{
+    [super didReceiveMemoryWarning];
+    // Dispose of any resources that can be recreated.
+}
+
+-(void)refreshInterfaceBasedOnSignIn
+{
+    if ([[GPPSignIn sharedInstance] authentication]) {
+        // The user is signed in.
+        self.signInButton.hidden = YES;
+        // Perform other actions here, such as showing a sign-out button
+    } else {
+        self.signInButton.hidden = NO;
+        // Perform other actions here
+    }
+}
+
+-(void)getMeData
+{
+    GTLServicePlus* plusService = [[GTLServicePlus alloc] init];
+    plusService.retryEnabled = YES;
+    [plusService setAuthorizer:[GPPSignIn sharedInstance].authentication];
+    GTLQueryPlus *query = [GTLQueryPlus queryForPeopleGetWithUserId:@"me"];
+    
+    [plusService executeQuery:query
+            completionHandler:^(GTLServiceTicket *ticket,
+                                GTLPlusPerson *person,
+                                NSError *error) {
+                if (error) {
+                    GTMLoggerError(@"Error: %@", error);
+                } else {
+                    // Retrieve the display name and "about me" text
+                    NSString *description = [NSString stringWithFormat:
+                                             @"%@\n%@", person.displayName,
+                                             person.aboutMe];
+                    [self performSegueWithIdentifier:@"loginToHome" sender:nil];
+                }
+            }];
+}
+- (void)finishedWithAuth: (GTMOAuth2Authentication *)auth
+                   error: (NSError *) error
+{
+    NSLog(@"Received error %@ and auth object %@",error, auth);
+    if (error) {
+        // Do some error handling here.
+    } else {
+        GPPSignIn *signIn = [GPPSignIn sharedInstance];
+        NSString * textPlusEmail = [signIn.authentication.userEmail lowercaseString];
+        if([textPlusEmail rangeOfString:@"gogii.net"].location == NSNotFound && [textPlusEmail rangeOfString:@"textplusteam.com"].location == NSNotFound)
+        {
+            //This is not a textPlus person
+            UIAlertView * al = [[UIAlertView alloc] initWithTitle:@"Go away"
+                                                          message:@"You can only use this app with a textPus email"
+                                                         delegate:nil
+                                                cancelButtonTitle:@"Fine"
+                                                otherButtonTitles: nil];
+            [al show];
+            [signIn signOut];
+        }
+        [self refreshInterfaceBasedOnSignIn];
+        [self getMeData];
+    }
+}
+
+@end
