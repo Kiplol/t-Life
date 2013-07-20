@@ -7,6 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3785E9421799E569001BD1B1 /* t__Life.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 3785E9401799E569001BD1B1 /* t__Life.xcdatamodeld */; };
+		3785E9451799E7D9001BD1B1 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3785E9441799E7D9001BD1B1 /* CoreData.framework */; };
+		3785E9481799E933001BD1B1 /* TLMovieModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 3785E9471799E933001BD1B1 /* TLMovieModel.m */; };
+		3785E94B1799FEB3001BD1B1 /* TLMovieManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 3785E94A1799FEB3001BD1B1 /* TLMovieManager.m */; };
+		3785E9C6179A205B001BD1B1 /* TLMovieViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3785E9C5179A205B001BD1B1 /* TLMovieViewCell.m */; };
+		3785E9CA179A2B35001BD1B1 /* TLMovieView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3785E9C9179A2B35001BD1B1 /* TLMovieView.m */; };
 		37ADB531179099EB0048358D /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 37ADB530179099EB0048358D /* UIKit.framework */; };
 		37ADB533179099EB0048358D /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 37ADB532179099EB0048358D /* Foundation.framework */; };
 		37ADB535179099EB0048358D /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 37ADB534179099EB0048358D /* CoreGraphics.framework */; };
@@ -45,6 +51,16 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		3785E9411799E569001BD1B1 /* t__Life.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = t__Life.xcdatamodel; sourceTree = "<group>"; };
+		3785E9441799E7D9001BD1B1 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		3785E9461799E933001BD1B1 /* TLMovieModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TLMovieModel.h; path = Models/TLMovieModel.h; sourceTree = "<group>"; };
+		3785E9471799E933001BD1B1 /* TLMovieModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TLMovieModel.m; path = Models/TLMovieModel.m; sourceTree = "<group>"; };
+		3785E9491799FEB3001BD1B1 /* TLMovieManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TLMovieManager.h; path = Manager/TLMovieManager.h; sourceTree = "<group>"; };
+		3785E94A1799FEB3001BD1B1 /* TLMovieManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TLMovieManager.m; path = Manager/TLMovieManager.m; sourceTree = "<group>"; };
+		3785E9C4179A205B001BD1B1 /* TLMovieViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TLMovieViewCell.h; path = Views/TLMovieViewCell.h; sourceTree = "<group>"; };
+		3785E9C5179A205B001BD1B1 /* TLMovieViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TLMovieViewCell.m; path = Views/TLMovieViewCell.m; sourceTree = "<group>"; };
+		3785E9C8179A2B35001BD1B1 /* TLMovieView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TLMovieView.h; path = Views/TLMovieView.h; sourceTree = "<group>"; };
+		3785E9C9179A2B35001BD1B1 /* TLMovieView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TLMovieView.m; path = Views/TLMovieView.m; sourceTree = "<group>"; };
 		37ADB52D179099EB0048358D /* t+ Life.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "t+ Life.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		37ADB530179099EB0048358D /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		37ADB532179099EB0048358D /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -94,6 +110,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				37ADB533179099EB0048358D /* Foundation.framework in Frameworks */,
+				3785E9451799E7D9001BD1B1 /* CoreData.framework in Frameworks */,
 				37ED589A1790C4F100876C65 /* Social.framework in Frameworks */,
 				37ED58991790C4E900876C65 /* libsqlite3.dylib in Frameworks */,
 				37ED58971790C4DB00876C65 /* AdSupport.framework in Frameworks */,
@@ -109,7 +127,6 @@
 				37ADB5ED17909B960048358D /* SystemConfiguration.framework in Frameworks */,
 				37ADB5EB17909B8F0048358D /* Security.framework in Frameworks */,
 				37ADB531179099EB0048358D /* UIKit.framework in Frameworks */,
-				37ADB533179099EB0048358D /* Foundation.framework in Frameworks */,
 				37ADB6501790A4F70048358D /* GoogleOpenSource.framework in Frameworks */,
 				37ADB6521790A4F70048358D /* GooglePlus.framework in Frameworks */,
 				37ED587B1790C05200876C65 /* Parse.framework in Frameworks */,
@@ -120,22 +137,39 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3785E9431799E582001BD1B1 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				3785E9401799E569001BD1B1 /* t__Life.xcdatamodeld */,
+				3785E9461799E933001BD1B1 /* TLMovieModel.h */,
+				3785E9471799E933001BD1B1 /* TLMovieModel.m */,
+			);
+			name = Models;
+			sourceTree = "<group>";
+		};
+		3785E94C1799FED3001BD1B1 /* Manager */ = {
+			isa = PBXGroup;
+			children = (
+				3785E9491799FEB3001BD1B1 /* TLMovieManager.h */,
+				3785E94A1799FEB3001BD1B1 /* TLMovieManager.m */,
+			);
+			name = Manager;
+			sourceTree = "<group>";
+		};
+		3785E9C7179A205F001BD1B1 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				3785E9C8179A2B35001BD1B1 /* TLMovieView.h */,
+				3785E9C9179A2B35001BD1B1 /* TLMovieView.m */,
+				3785E9C4179A205B001BD1B1 /* TLMovieViewCell.h */,
+				3785E9C5179A205B001BD1B1 /* TLMovieViewCell.m */,
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
 		37ADB524179099EB0048358D = {
 			isa = PBXGroup;
 			children = (
-				37ED58981790C4E900876C65 /* libsqlite3.dylib */,
-				37ED58961790C4DB00876C65 /* AdSupport.framework */,
-				37ED588D1790C27900876C65 /* Social.framework */,
-				37ED588A1790C26000876C65 /* Accounts.framework */,
-				37ED58861790C0C000876C65 /* QuartzCore.framework */,
-				37ED58871790C0C000876C65 /* StoreKit.framework */,
-				37ED587E1790C0B100876C65 /* CFNetwork.framework */,
-				37ED587F1790C0B100876C65 /* CoreLocation.framework */,
-				37ED58801790C0B100876C65 /* libz.1.1.3.dylib */,
-				37ED58811790C0B100876C65 /* MobileCoreServices.framework */,
-				37ED587C1790C08600876C65 /* AudioToolbox.framework */,
-				37ADB5EC17909B960048358D /* SystemConfiguration.framework */,
-				37ADB5EA17909B8F0048358D /* Security.framework */,
 				37ADB536179099EB0048358D /* t+ Life */,
 				37ADB52F179099EB0048358D /* Frameworks */,
 				37ADB52E179099EB0048358D /* Products */,
@@ -154,6 +188,20 @@
 		37ADB52F179099EB0048358D /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				3785E9441799E7D9001BD1B1 /* CoreData.framework */,
+				37ED58981790C4E900876C65 /* libsqlite3.dylib */,
+				37ED58961790C4DB00876C65 /* AdSupport.framework */,
+				37ED588D1790C27900876C65 /* Social.framework */,
+				37ED588A1790C26000876C65 /* Accounts.framework */,
+				37ED58861790C0C000876C65 /* QuartzCore.framework */,
+				37ED58871790C0C000876C65 /* StoreKit.framework */,
+				37ED587E1790C0B100876C65 /* CFNetwork.framework */,
+				37ED587F1790C0B100876C65 /* CoreLocation.framework */,
+				37ED58801790C0B100876C65 /* libz.1.1.3.dylib */,
+				37ED58811790C0B100876C65 /* MobileCoreServices.framework */,
+				37ED587C1790C08600876C65 /* AudioToolbox.framework */,
+				37ADB5EC17909B960048358D /* SystemConfiguration.framework */,
+				37ADB5EA17909B8F0048358D /* Security.framework */,
 				37ED58921790C4AF00876C65 /* FacebookSDKResources.bundle */,
 				37ED588F1790C3C300876C65 /* FacebookSDK.framework */,
 				37ED587A1790C05200876C65 /* Parse.framework */,
@@ -176,6 +224,9 @@
 				37ADB553179099EB0048358D /* first@2x.png */,
 				37ADB555179099EB0048358D /* TLLunchReviewController.h */,
 				37ADB556179099EB0048358D /* TLLunchReviewController.m */,
+				3785E9C7179A205F001BD1B1 /* Views */,
+				3785E94C1799FED3001BD1B1 /* Manager */,
+				3785E9431799E582001BD1B1 /* Models */,
 				37ADB558179099EB0048358D /* second.png */,
 				37ADB55A179099EB0048358D /* second@2x.png */,
 				37ADB5F11790A2CF0048358D /* ViewControllers */,
@@ -302,6 +353,11 @@
 				37ADB550179099EB0048358D /* TLMovieListViewController.m in Sources */,
 				37ADB557179099EB0048358D /* TLLunchReviewController.m in Sources */,
 				37ADB5F01790A2B90048358D /* TLLoginViewController.m in Sources */,
+				3785E9421799E569001BD1B1 /* t__Life.xcdatamodeld in Sources */,
+				3785E9481799E933001BD1B1 /* TLMovieModel.m in Sources */,
+				3785E94B1799FEB3001BD1B1 /* TLMovieManager.m in Sources */,
+				3785E9C6179A205B001BD1B1 /* TLMovieViewCell.m in Sources */,
+				3785E9CA179A2B35001BD1B1 /* TLMovieView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -443,6 +499,20 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		3785E9401799E569001BD1B1 /* t__Life.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				3785E9411799E569001BD1B1 /* t__Life.xcdatamodel */,
+			);
+			currentVersion = 3785E9411799E569001BD1B1 /* t__Life.xcdatamodel */;
+			name = t__Life.xcdatamodeld;
+			path = Models/t__Life.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 37ADB525179099EB0048358D /* Project object */;
 }

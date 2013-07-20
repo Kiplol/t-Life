@@ -131,6 +131,7 @@ static NSString * const kClientID = @"912963317070.apps.googleusercontent.com";
         [self refreshInterfaceBasedOnSignIn];
         if([self loginWithUsername:username email:textPlusEmail password:textPlusEmail])
         {
+            NSLog(@"Successfully logged in as %@.", username);
             [self getMeData];
         }
     }

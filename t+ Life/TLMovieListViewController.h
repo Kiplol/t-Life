@@ -8,6 +8,12 @@
 
 #import <UIKit/UIKit.h>
 
-@interface TLMovieListViewController : UIViewController
+@interface TLMovieListViewController : UIViewController <UICollectionViewDataSource, UICollectionViewDelegate> {
+    IBOutlet UICollectionView * _collectionView;
+    IBOutlet UICollectionViewFlowLayout * _flowLayout;
+    NSArray * _arrMovies;
+    CGFloat _lastMovieOffset;
+    int _currentPage;
+}
 
 @end
