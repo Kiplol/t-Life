@@ -12,7 +12,7 @@
 #define KEY_MOVIE_VERSION @"movieVersion"
 
 @implementation TLMovieManager
-
+@dynamic currentVersion;
 +(TLMovieManager*)getInstance
 {
     static dispatch_once_t once;
@@ -24,6 +24,21 @@
     });
     
     return pInstance;
+}
+
+-(int)currentVersion
+{
+    NSUserDefaults * defaults = [NSUserDefaults standardUserDefaults];
+    NSNumber * currentVersion = nil;
+    if([defaults objectForKey:KEY_MOVIE_VERSION])
+    {
+        currentVersion = [defaults objectForKey:KEY_MOVIE_VERSION];
+    }
+    else
+    {
+        currentVersion = [NSNumber numberWithInt:0];
+    }
+    return [currentVersion intValue];
 }
 -(BOOL)needsUpdate
 {

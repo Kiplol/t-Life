@@ -13,6 +13,8 @@
 		3785E94B1799FEB3001BD1B1 /* TLMovieManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 3785E94A1799FEB3001BD1B1 /* TLMovieManager.m */; };
 		3785E9C6179A205B001BD1B1 /* TLMovieViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3785E9C5179A205B001BD1B1 /* TLMovieViewCell.m */; };
 		3785E9CA179A2B35001BD1B1 /* TLMovieView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3785E9C9179A2B35001BD1B1 /* TLMovieView.m */; };
+		3785E9CD179B1778001BD1B1 /* TLVoteManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 3785E9CC179B1778001BD1B1 /* TLVoteManager.m */; };
+		3785E9D6179B1EFE001BD1B1 /* TLMovieVote.m in Sources */ = {isa = PBXBuildFile; fileRef = 3785E9D5179B1EFE001BD1B1 /* TLMovieVote.m */; };
 		37ADB531179099EB0048358D /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 37ADB530179099EB0048358D /* UIKit.framework */; };
 		37ADB533179099EB0048358D /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 37ADB532179099EB0048358D /* Foundation.framework */; };
 		37ADB535179099EB0048358D /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 37ADB534179099EB0048358D /* CoreGraphics.framework */; };
@@ -61,6 +63,10 @@
 		3785E9C5179A205B001BD1B1 /* TLMovieViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TLMovieViewCell.m; path = Views/TLMovieViewCell.m; sourceTree = "<group>"; };
 		3785E9C8179A2B35001BD1B1 /* TLMovieView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TLMovieView.h; path = Views/TLMovieView.h; sourceTree = "<group>"; };
 		3785E9C9179A2B35001BD1B1 /* TLMovieView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TLMovieView.m; path = Views/TLMovieView.m; sourceTree = "<group>"; };
+		3785E9CB179B1778001BD1B1 /* TLVoteManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TLVoteManager.h; path = Manager/TLVoteManager.h; sourceTree = "<group>"; };
+		3785E9CC179B1778001BD1B1 /* TLVoteManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TLVoteManager.m; path = Manager/TLVoteManager.m; sourceTree = "<group>"; };
+		3785E9D4179B1EFE001BD1B1 /* TLMovieVote.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TLMovieVote.h; path = Models/TLMovieVote.h; sourceTree = "<group>"; };
+		3785E9D5179B1EFE001BD1B1 /* TLMovieVote.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TLMovieVote.m; path = Models/TLMovieVote.m; sourceTree = "<group>"; };
 		37ADB52D179099EB0048358D /* t+ Life.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "t+ Life.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		37ADB530179099EB0048358D /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		37ADB532179099EB0048358D /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -141,6 +147,8 @@
 			isa = PBXGroup;
 			children = (
 				3785E9401799E569001BD1B1 /* t__Life.xcdatamodeld */,
+				3785E9D4179B1EFE001BD1B1 /* TLMovieVote.h */,
+				3785E9D5179B1EFE001BD1B1 /* TLMovieVote.m */,
 				3785E9461799E933001BD1B1 /* TLMovieModel.h */,
 				3785E9471799E933001BD1B1 /* TLMovieModel.m */,
 			);
@@ -150,6 +158,8 @@
 		3785E94C1799FED3001BD1B1 /* Manager */ = {
 			isa = PBXGroup;
 			children = (
+				3785E9CB179B1778001BD1B1 /* TLVoteManager.h */,
+				3785E9CC179B1778001BD1B1 /* TLVoteManager.m */,
 				3785E9491799FEB3001BD1B1 /* TLMovieManager.h */,
 				3785E94A1799FEB3001BD1B1 /* TLMovieManager.m */,
 			);
@@ -358,6 +368,8 @@
 				3785E94B1799FEB3001BD1B1 /* TLMovieManager.m in Sources */,
 				3785E9C6179A205B001BD1B1 /* TLMovieViewCell.m in Sources */,
 				3785E9CA179A2B35001BD1B1 /* TLMovieView.m in Sources */,
+				3785E9CD179B1778001BD1B1 /* TLVoteManager.m in Sources */,
+				3785E9D6179B1EFE001BD1B1 /* TLMovieVote.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

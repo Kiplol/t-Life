@@ -12,6 +12,8 @@
     int _lastCheckedVersion;
 }
 
+@property (readonly) int currentVersion;
+
 +(TLMovieManager*)getInstance;
 -(BOOL)needsUpdate;
 -(NSArray*)getCachedMovies;

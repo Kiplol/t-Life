@@ -14,6 +14,7 @@
 #define KEY_POSTER_URL @"posterURL"
 #define KEY_UPVOTES @"upvotes"
 #define KEY_DOWNVOTES @"downvotes"
+@class TLMovieVote;
 
 @interface TLMovieModel : NSManagedObject
 
@@ -23,10 +24,20 @@
 @property (nonatomic, retain) NSNumber * upvotes;
 @property (nonatomic, retain) NSNumber * downvotes;
 @property (nonatomic, retain) NSData * posterImageData;
+@property (nonatomic, retain) NSSet *votes;
+@end
 
+@interface TLMovieModel (CoreDataGeneratedAccessors)
+
+- (void)addVotesObject:(TLMovieVote *)value;
+- (void)removeVotesObject:(TLMovieVote *)value;
+- (void)addVotes:(NSSet *)values;
+- (void)removeVotes:(NSSet *)values;
 
 -(id)initWithTitle:(NSString*)aTitle aboutURL:(NSString*)aURL posterURL:(NSString*)pURL upvotes:(int)uvotes downvotes:(int)dvotes;
 -(id)initWithData:(NSDictionary*)data;
 -(void)saveToParse;
 
 @end
+
+

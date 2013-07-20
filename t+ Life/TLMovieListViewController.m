@@ -10,6 +10,7 @@
 #import "TLMovieManager.h"
 #import "TLMovieModel.h"
 #import "TLMovieViewCell.h"
+#import "TLVoteManager.h"
 #import <Parse/Parse.h>
 
 @interface TLMovieListViewController ()
@@ -100,6 +101,8 @@
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
 {    
     TLMovieModel * movie = [_arrMovies objectAtIndex:indexPath.row];
+    [[TLVoteManager getInstance] voteForMovie:movie withSuccess:nil failure:nil];
+    return;
     NSURL * aboutURL = [NSURL URLWithString:movie.aboutURL];
     [[UIApplication sharedApplication] openURL:aboutURL];
 }

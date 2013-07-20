@@ -8,6 +8,7 @@
 
 #import "TLMovieModel.h"
 #import "TLAppDelegate.h"
+#import "TLMovieVote.h"
 
 @implementation TLMovieModel
 
@@ -17,6 +18,7 @@
 @dynamic upvotes;
 @dynamic downvotes;
 @dynamic posterImageData;
+@dynamic votes;
 
 -(id)initWithTitle:(NSString*)aTitle aboutURL:(NSString*)aURL posterURL:(NSString*)pURL upvotes:(int)uvotes downvotes:(int)dvotes
 {
