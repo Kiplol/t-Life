@@ -8,11 +8,14 @@
 
 #import <Foundation/Foundation.h>
 
-@interface TLMovieManager : NSObject
+@interface TLMovieManager : NSObject {
+    int _lastCheckedVersion;
+}
 
 +(TLMovieManager*)getInstance;
 -(BOOL)needsUpdate;
 -(NSArray*)getCachedMovies;
 -(NSArray*)getRemoteMovies;
+-(NSArray*)getAllMovies;
 -(void)deleteLocalMovies;
 @end

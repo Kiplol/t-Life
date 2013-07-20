@@ -18,8 +18,11 @@
         _imgPoster.autoresizingMask = UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleWidth;
         [self addSubview:_imgPoster];
         _darkBottom = [[UIView alloc] init];
+        _darkBottom.backgroundColor = [UIColor colorWithWhite:0 alpha:0.5];
         [self addSubview:_darkBottom];
         _lblTitle = [[UILabel alloc] init];
+        _lblTitle.backgroundColor = [UIColor clearColor];
+        _lblTitle.textColor = [UIColor whiteColor];
         [self addSubview:_lblTitle];
         if(movie)
             [self updateWithMovie:movie];
@@ -41,6 +44,14 @@
     [super layoutSubviews];
     [_lblTitle sizeToFit];
     _imgPoster.frame = self.bounds;
+    
+    //Title Label
+    _lblTitle.frame = CGRectMake(10, CGRectGetMaxY(_imgPoster.frame) - _lblTitle.frame.size.height - 10,
+                                 _lblTitle.frame.size.width, _lblTitle.frame.size.height);
+    
+    //Dark Bottom
+    _darkBottom.frame = CGRectMake(0, _lblTitle.frame.origin.y - 10, _imgPoster.frame.size.width,
+                                   CGRectGetMaxY(_imgPoster.frame) - _lblTitle.frame.origin.y + 10);
 }
 
 @end

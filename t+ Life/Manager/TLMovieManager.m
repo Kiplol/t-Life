@@ -20,6 +20,7 @@
     
     dispatch_once(&once, ^{
         pInstance = [[TLMovieManager alloc] init];
+        pInstance->_lastCheckedVersion = -1;
     });
     
     return pInstance;
@@ -37,6 +38,10 @@
         currentVersion = [NSNumber numberWithInt:0];
     }
     
+    if(_lastCheckedVersion < 0)
+    {
+        _lastCheckedVersion = [currentVersion intValue];
+    }
     PFQuery *query = [PFQuery queryWithClassName:@"MovieUpdateVersion"];
     NSError * error;
     NSArray * versions = [query findObjects:&error];
@@ -45,7 +50,8 @@
         for(NSDictionary * versionDic in versions)
         {
             NSNumber * version = [versionDic objectForKey:@"Version"];
-            if(version > currentVersion)
+            _lastCheckedVersion = [version intValue];
+            if(_lastCheckedVersion > [currentVersion intValue])
             {
                 return YES;
             }
@@ -103,9 +109,24 @@
             [remoteMovies addObject:tempMovie];
         }
     }
+    NSUserDefaults * defaults = [NSUserDefaults standardUserDefaults];
+    [defaults setObject:[NSNumber numberWithInt:_lastCheckedVersion] forKey:KEY_MOVIE_VERSION];
+    TLAppDelegate * appDelegate = [UIApplication sharedApplication].delegate;
+    [appDelegate saveContext];
     return remoteMovies;
 }
 
+-(NSArray*)getAllMovies
+{
+    if([self needsUpdate])
+    {
+        return [self getRemoteMovies];
+    }
+    else
+    {
+        return [self getCachedMovies];
+    }
+}
 -(void)deleteLocalMovies
 {
     NSArray * movies = [self getCachedMovies];

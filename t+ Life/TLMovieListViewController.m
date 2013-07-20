@@ -14,6 +14,7 @@
 
 @interface TLMovieListViewController ()
 
+-(void)sizeCollectionCells;
 @end
 
 @implementation TLMovieListViewController
@@ -22,23 +23,48 @@
 {
     [super viewDidLoad];
 	_arrMovies = [[TLMovieManager getInstance] getCachedMovies];
+    [self performSelectorInBackground:@selector(refreshMovieData) withObject:nil];
 }
 
 -(void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
-    CGFloat posterWidth = self.view.frame.size.width - 100;
+    [self sizeCollectionCells];
+}
+
+-(void)didRotateFromInterfaceOrientation:(UIInterfaceOrientation)fromInterfaceOrientation
+{
+    [super didRotateFromInterfaceOrientation:fromInterfaceOrientation];
+    [self sizeCollectionCells];
+    //[_collectionView reloadSections:[NSIndexSet indexSetWithIndex:0]];
+}
+-(void)sizeCollectionCells
+{
+    CGFloat posterWidth = _collectionView.frame.size.width - 120;
     CGFloat posterHeight = posterWidth * 1.50f;
+    if(posterHeight > _collectionView.frame.size.height)
+    {
+        posterHeight = _collectionView.frame.size.height - 60.0f;
+        posterWidth = posterHeight * (2.0f/3.0f);
+    }
     _flowLayout.itemSize = CGSizeMake(posterWidth, posterHeight);
     CGFloat space = self.view.frame.size.width - _flowLayout.itemSize.width;
     CGFloat cornerPeekWidth = 10.0f;
-    _flowLayout.minimumLineSpacing = ((space / 2) - (cornerPeekWidth * 2));
+    //_flowLayout.minimumLineSpacing = ((space / 2) - (cornerPeekWidth * 2));
+    _flowLayout.minimumInteritemSpacing = ((space / 2) - (cornerPeekWidth * 2));
 }
 
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+-(void)refreshMovieData
+{
+    _arrMovies = [[TLMovieManager getInstance] getAllMovies];
+    NSIndexSet * set = [NSIndexSet indexSetWithIndex:0];
+    [_collectionView reloadSections:set];
 }
 
 #pragma mark - UICollectionViewDataSource
@@ -54,8 +80,8 @@
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
 {
     TLMovieViewCell * cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"movieCell" forIndexPath:indexPath];
-    //cell.backgroundColor = [UIColor greenColor];
     [cell updateWithMovie:[_arrMovies objectAtIndex:indexPath.row]];
+    cell.backgroundColor = [UIColor greenColor];
     [cell setNeedsLayout];
     return cell;
 }
@@ -69,6 +95,14 @@
 //{
 //    return nil;
 //}
+
+#pragma mark - UICollectionViewDelegate
+- (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
+{    
+    TLMovieModel * movie = [_arrMovies objectAtIndex:indexPath.row];
+    NSURL * aboutURL = [NSURL URLWithString:movie.aboutURL];
+    [[UIApplication sharedApplication] openURL:aboutURL];
+}
 
 //- (void)scrollViewWillBeginDecelerating:(UIScrollView *)scrollView
 //{

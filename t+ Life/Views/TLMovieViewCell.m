@@ -36,6 +36,7 @@
         _movieView = [[TLMovieView alloc] initWithMovie:movie];
         [self addSubview:_movieView];
         _movieView.frame = self.bounds;
+        _movieView.autoresizingMask = UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleWidth;
     }
     else
     {

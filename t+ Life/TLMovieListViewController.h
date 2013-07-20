@@ -16,4 +16,6 @@
     int _currentPage;
 }
 
+-(void)refreshMovieData;
+
 @end
