@@ -22,4 +22,5 @@
 
 -(id)initWithMovie:(TLMovieModel*)movie username:(NSString*)username round:(int)round isUpvote:(BOOL)bUpvote;
 -(void)saveToParse;
+-(void)saveToParseSuccess:(PFBooleanResultBlock)success failure:(PFBooleanResultBlock)failure;
 @end

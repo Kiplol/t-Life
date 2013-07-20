@@ -28,7 +28,9 @@
         self.username = username;
         self.upvote = [NSNumber numberWithBool:bUpvote];
         self.round = [NSNumber numberWithInt:round];
-        [movie addVotesObject:self];
+        if (context != nil)
+            [context insertObject:self];
+        self.movie = movie;
     }
     return self;
 }
@@ -36,14 +38,26 @@
 {
     return [self.upvote boolValue];
 }
-
 -(void)saveToParse
+{
+    [self saveToParseSuccess:nil failure:nil];
+}
+-(void)saveToParseSuccess:(PFBooleanResultBlock)success failure:(PFBooleanResultBlock)failure
 {
     PFObject *testObject = [PFObject objectWithClassName:@"TLMovieVote"];
     [testObject setObject:self.username forKey:@"username"];
     [testObject setObject:self.movie.title forKey:@"movie"];
     [testObject setObject:self.upvote forKey:@"upvote"];
-    [testObject saveInBackgroundWithBlock:nil];
+    [testObject saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+        if(error)
+        {
+            failure(succeeded, error);
+        }
+        else
+        {
+            success(succeeded, error);
+        }
+    }];
 }
 
 @end

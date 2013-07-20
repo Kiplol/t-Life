@@ -12,7 +12,7 @@
 #import "TLMovieModel.h"
 @implementation TLVoteManager
 @synthesize currentRound = _currentRound;
-@synthesize hasCurrentRound = _hasCurrentRound;
+@synthesize hasCurrentRound = _bHasCurrentRound;
 
 +(TLVoteManager*)getInstance
 {
@@ -36,6 +36,7 @@
             NSDictionary * firstRoundDic = [objects objectAtIndex:0];
             if(firstRoundDic)
             {
+                NSLog(@"%@", firstRoundDic);
                 _bHasCurrentRound = YES;
                 _currentRound = [[firstRoundDic objectForKey:@"round"] intValue];
             }
@@ -45,9 +46,15 @@
 }
 -(void)voteForMovie:(TLMovieModel *)movie withSuccess:(PFBooleanResultBlock)success failure:(PFBooleanResultBlock)failure
 {
-    TLMovieVote * vote = [[TLMovieVote alloc] initWithMovie:movie username:[PFUser currentUser].username round:_currentRound isUpvote:YES];
-    [vote saveToParse];
-    success(YES, nil);
+    TLMovieVote * vote = [movie addVoteFromUsername:[PFUser currentUser].username isUpvote:YES];
+    if(vote)
+    {
+        [vote saveToParseSuccess:success failure:failure];
+    }
+    else
+    {
+        failure(NO, nil);
+    }
 }
 
 -(NSArray*)votesForUsername:(NSString *)username

@@ -25,6 +25,11 @@
 @property (nonatomic, retain) NSNumber * downvotes;
 @property (nonatomic, retain) NSData * posterImageData;
 @property (nonatomic, retain) NSSet *votes;
+
+-(id)initWithTitle:(NSString*)aTitle aboutURL:(NSString*)aURL posterURL:(NSString*)pURL upvotes:(int)uvotes downvotes:(int)dvotes;
+-(id)initWithData:(NSDictionary*)data;
+-(void)saveToParse;
+-(TLMovieVote*)addVoteFromUsername:(NSString*)username isUpvote:(BOOL)bUpvote;
 @end
 
 @interface TLMovieModel (CoreDataGeneratedAccessors)
@@ -33,11 +38,6 @@
 - (void)removeVotesObject:(TLMovieVote *)value;
 - (void)addVotes:(NSSet *)values;
 - (void)removeVotes:(NSSet *)values;
-
--(id)initWithTitle:(NSString*)aTitle aboutURL:(NSString*)aURL posterURL:(NSString*)pURL upvotes:(int)uvotes downvotes:(int)dvotes;
--(id)initWithData:(NSDictionary*)data;
--(void)saveToParse;
-
 @end
 
 

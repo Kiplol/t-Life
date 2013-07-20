@@ -9,6 +9,7 @@
 #import "TLAppDelegate.h"
 #import <GooglePlus/GooglePlus.h>
 #import <Parse/Parse.h>
+#import "TLVoteManager.h"
 
 static NSString * const kClientID = @"912963317070.apps.googleusercontent.com";
 
@@ -34,6 +35,8 @@ static NSString * const kClientID = @"912963317070.apps.googleusercontent.com";
     [Parse setApplicationId:@"TDVRA7eEIIzVxjYqAoLVHk7vmp1E1auT1wJFSxg6"
                   clientKey:@"hRoMtwIsyiqq61R755jGePNdxAuXbiiMx5eQdAzV"];
     [PFAnalytics trackAppOpenedWithLaunchOptions:launchOptions];
+    
+    [TLVoteManager getInstance];
     return YES;
 }
 							

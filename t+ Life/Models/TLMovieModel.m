@@ -9,6 +9,7 @@
 #import "TLMovieModel.h"
 #import "TLAppDelegate.h"
 #import "TLMovieVote.h"
+#import "TLVoteManager.h"
 
 @implementation TLMovieModel
 
@@ -48,6 +49,21 @@
                      posterURL:[data objectForKey:KEY_POSTER_URL]
                        upvotes:[[data objectForKey:KEY_UPVOTES] intValue]
                      downvotes:[[data objectForKey:KEY_DOWNVOTES] intValue]];
+}
+-(TLMovieVote*)addVoteFromUsername:(NSString*)username isUpvote:(BOOL)bUpvote
+{
+    if([TLVoteManager getInstance].hasCurrentRound)
+    {
+        TLMovieVote * vote = [[TLMovieVote alloc] initWithMovie:self username:username round:[TLVoteManager getInstance].currentRound isUpvote:YES];
+        TLAppDelegate * appDelegate = [UIApplication sharedApplication].delegate;
+        [appDelegate saveContext];
+        return vote;
+    }
+    else
+    {
+        //Not ready yet
+        return nil;
+    }
 }
 -(void)saveToParse
 {
