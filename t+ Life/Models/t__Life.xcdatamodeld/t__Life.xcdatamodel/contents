@@ -13,10 +13,11 @@
         <attribute name="round" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
         <attribute name="upvote" optional="YES" attributeType="Boolean" defaultValueString="0" syncable="YES"/>
         <attribute name="username" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="voteID" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="movie" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="TLMovieModel" inverseName="votes" inverseEntity="TLMovieModel" syncable="YES"/>
     </entity>
     <elements>
         <element name="TLMovieModel" positionX="160" positionY="192" width="128" height="150"/>
-        <element name="TLMovieVote" positionX="160" positionY="192" width="128" height="105"/>
+        <element name="TLMovieVote" positionX="160" positionY="192" width="128" height="120"/>
     </elements>
 </model>

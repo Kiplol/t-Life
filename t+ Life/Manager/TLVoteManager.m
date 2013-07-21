@@ -72,6 +72,24 @@
 
 -(NSArray*)votesForMovie:(TLMovieModel *)movie
 {
-    return nil;
+    PFQuery *query = [PFQuery queryWithClassName:@"TLMovieVote"];
+    [query whereKey:@"movie" equalTo:movie.title];
+    [query whereKey:@"round" equalTo:[NSNumber numberWithInt:_currentRound]];
+    return [query findObjects];
+}
+
+-(void)updateVotesForMovie:(TLMovieModel*)movie completion:(PFBooleanResultBlock)completion
+{
+    PFQuery *query = [PFQuery queryWithClassName:@"TLMovieVote"];
+    [query whereKey:@"movie" equalTo:movie.title];
+    //[query whereKey:@"round" equalTo:[NSNumber numberWithInt:_currentRound]];
+    NSArray * voteIDs = [movie.votes valueForKey:@"voteID"];
+    [query whereKey:@"voteID" notContainedIn:voteIDs];
+    [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+        for (NSDictionary * voteDic in objects) {
+            [movie addVoteFromUsername:[voteDic objectForKey:@"username"] isUpvote:[[voteDic objectForKey:@"upvote"] boolValue] voteID:[voteDic objectForKey:@"voteID"]];
+        }
+        completion((error == nil), error);
+    }];
 }
 @end

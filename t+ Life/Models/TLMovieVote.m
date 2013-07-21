@@ -17,8 +17,9 @@
 @dynamic movie;
 @dynamic isUpvote;
 @dynamic round;
+@dynamic voteID;
 
--(id)initWithMovie:(TLMovieModel*)movie username:(NSString*)username round:(int)round isUpvote:(BOOL)bUpvote
+-(id)initWithMovie:(TLMovieModel*)movie username:(NSString*)username round:(int)round isUpvote:(BOOL)bUpvote voteID:(NSString*)voteID;
 {
     TLAppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
     NSManagedObjectContext *context = [appDelegate managedObjectContext];
@@ -28,6 +29,14 @@
         self.username = username;
         self.upvote = [NSNumber numberWithBool:bUpvote];
         self.round = [NSNumber numberWithInt:round];
+        if(voteID)
+        {
+            self.voteID = voteID;
+        }
+        else
+        {
+            self.voteID = [NSString stringWithFormat:@"%@-%@-%f", [PFUser currentUser].username, movie.title, [[NSDate date] timeIntervalSince1970]];
+        }
         if (context != nil)
             [context insertObject:self];
         self.movie = movie;
@@ -48,6 +57,7 @@
     [testObject setObject:self.username forKey:@"username"];
     [testObject setObject:self.movie.title forKey:@"movie"];
     [testObject setObject:self.upvote forKey:@"upvote"];
+    [testObject setObject:self.voteID forKey:@"voteID"];
     [testObject saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
         if(error)
         {

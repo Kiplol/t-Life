@@ -51,7 +51,6 @@
     _flowLayout.itemSize = CGSizeMake(posterWidth, posterHeight);
     CGFloat space = self.view.frame.size.width - _flowLayout.itemSize.width;
     CGFloat cornerPeekWidth = 10.0f;
-    //_flowLayout.minimumLineSpacing = ((space / 2) - (cornerPeekWidth * 2));
     _flowLayout.minimumInteritemSpacing = ((space / 2) - (cornerPeekWidth * 2));
 }
 
@@ -64,8 +63,15 @@
 -(void)refreshMovieData
 {
     _arrMovies = [[TLMovieManager getInstance] getAllMovies];
-    NSIndexSet * set = [NSIndexSet indexSetWithIndex:0];
-    [_collectionView reloadSections:set];
+    [_collectionView reloadSections:[NSIndexSet indexSetWithIndex:0]];
+    int nMovies = _arrMovies.count;
+    for(int i = 0; i < nMovies; i++)
+    {
+        TLMovieModel * movie = [_arrMovies objectAtIndex:i];
+        [[TLVoteManager getInstance] updateVotesForMovie:movie completion:^(BOOL succeeded, NSError *error) {
+            [_collectionView reloadItemsAtIndexPaths:@[[NSIndexPath indexPathForRow:i inSection:0]]];
+        }];
+    }
 }
 
 #pragma mark - UICollectionViewDataSource
@@ -92,11 +98,6 @@
     return 1;
 }
 
-//- (UICollectionReusableView *)collectionView:(UICollectionView *)collectionView viewForSupplementaryElementOfKind:(NSString *)kind atIndexPath:(NSIndexPath *)indexPath
-//{
-//    return nil;
-//}
-
 #pragma mark - UICollectionViewDelegate
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
 {    
@@ -105,6 +106,7 @@
     [[TLVoteManager getInstance] voteForMovie:movie withSuccess:^(BOOL succeeded, NSError *error) {
         //Success
         _collectionView.backgroundColor = [UIColor greenColor];
+        [_collectionView reloadItemsAtIndexPaths:@[indexPath]];
     } failure:^(BOOL succeeded, NSError *error) {
         //Failure
         _collectionView.backgroundColor = [UIColor redColor];

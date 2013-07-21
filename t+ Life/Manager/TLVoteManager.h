@@ -20,4 +20,5 @@
 -(NSArray*)votesForUsername:(NSString*)username;
 -(NSArray*)votesForUsername:(NSString *)username forRound:(int)round;
 -(NSArray*)votesForMovie:(TLMovieModel*)movie;
+-(void)updateVotesForMovie:(TLMovieModel*)movie completion:(PFBooleanResultBlock)completion;
 @end

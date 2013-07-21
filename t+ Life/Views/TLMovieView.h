@@ -13,6 +13,7 @@
     UIImageView * _imgPoster;
     UILabel * _lblTitle;
     UIView * _darkBottom;
+    UILabel * _lblVotes;
 }
 
 -(id)initWithMovie:(TLMovieModel*)movie;

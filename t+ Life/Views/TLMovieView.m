@@ -24,6 +24,10 @@
         _lblTitle.backgroundColor = [UIColor clearColor];
         _lblTitle.textColor = [UIColor whiteColor];
         [self addSubview:_lblTitle];
+        _lblVotes = [[UILabel alloc] init];
+        _lblVotes.backgroundColor = [UIColor clearColor];
+        _lblVotes.textColor = [UIColor whiteColor];
+        [self addSubview:_lblVotes];
         if(movie)
             [self updateWithMovie:movie];
     }
@@ -37,17 +41,22 @@
     [_imgPoster sizeToFit];
     
     _lblTitle.text = movie.title;
+    
+    _lblVotes.text = [NSString stringWithFormat:@"%d", movie.votes.count];
 }
 -(void)layoutSubviews
 {
     _imgPoster.backgroundColor = [UIColor redColor];
     [super layoutSubviews];
-    [_lblTitle sizeToFit];
     _imgPoster.frame = self.bounds;
     
     //Title Label
+    [_lblTitle sizeToFit];
     _lblTitle.frame = CGRectMake(10, CGRectGetMaxY(_imgPoster.frame) - _lblTitle.frame.size.height - 10,
                                  _lblTitle.frame.size.width, _lblTitle.frame.size.height);
+    
+    //Votes Label
+    [_lblVotes sizeToFit];
     
     //Dark Bottom
     _darkBottom.frame = CGRectMake(0, _lblTitle.frame.origin.y - 10, _imgPoster.frame.size.width,

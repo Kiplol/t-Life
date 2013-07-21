@@ -52,9 +52,13 @@
 }
 -(TLMovieVote*)addVoteFromUsername:(NSString*)username isUpvote:(BOOL)bUpvote
 {
+    return [self addVoteFromUsername:username isUpvote:bUpvote voteID:nil];
+}
+-(TLMovieVote*)addVoteFromUsername:(NSString*)username isUpvote:(BOOL)bUpvote voteID:(NSString*)voteID
+{
     if([TLVoteManager getInstance].hasCurrentRound)
     {
-        TLMovieVote * vote = [[TLMovieVote alloc] initWithMovie:self username:username round:[TLVoteManager getInstance].currentRound isUpvote:YES];
+        TLMovieVote * vote = [[TLMovieVote alloc] initWithMovie:self username:username round:[TLVoteManager getInstance].currentRound isUpvote:YES voteID:voteID];
         TLAppDelegate * appDelegate = [UIApplication sharedApplication].delegate;
         [appDelegate saveContext];
         return vote;
