@@ -42,7 +42,7 @@
     
     _lblTitle.text = movie.title;
     
-    _lblVotes.text = [NSString stringWithFormat:@"%d", movie.votes.count];
+    _lblVotes.text = [NSString stringWithFormat:@"%d", movie.upvotes];
 }
 -(void)layoutSubviews
 {

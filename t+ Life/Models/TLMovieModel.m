@@ -16,12 +16,11 @@
 @dynamic title;
 @dynamic aboutURL;
 @dynamic posterURL;
-@dynamic upvotes;
-@dynamic downvotes;
+@synthesize downvotes, upvotes;
 @dynamic posterImageData;
 @dynamic votes;
 
--(id)initWithTitle:(NSString*)aTitle aboutURL:(NSString*)aURL posterURL:(NSString*)pURL upvotes:(int)uvotes downvotes:(int)dvotes
+-(id)initWithTitle:(NSString*)aTitle aboutURL:(NSString*)aURL posterURL:(NSString*)pURL
 {
     TLAppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
     NSManagedObjectContext *context = [appDelegate managedObjectContext];
@@ -31,8 +30,6 @@
         self.title = aTitle;
         self.aboutURL = aURL;
         self.posterURL = pURL;
-        self.upvotes = [NSNumber numberWithInt:uvotes];
-        self.downvotes = [NSNumber numberWithInt:dvotes];
         NSURL *url = [NSURL URLWithString:self.posterURL];
         NSData *data = [NSData dataWithContentsOfURL:url];
         self.posterImageData = data;
@@ -46,10 +43,35 @@
 {
     return [self initWithTitle:[data objectForKey:KEY_TITLE]
                       aboutURL:[data objectForKey:KEY_ABOUT_URL]
-                     posterURL:[data objectForKey:KEY_POSTER_URL]
-                       upvotes:[[data objectForKey:KEY_UPVOTES] intValue]
-                     downvotes:[[data objectForKey:KEY_DOWNVOTES] intValue]];
+                     posterURL:[data objectForKey:KEY_POSTER_URL]];
 }
+
+-(int)upvotes
+{
+    int nUps = 0;
+    for(TLMovieVote * vote in self.votes)
+    {
+        if([vote.upvote boolValue])
+        {
+            nUps++;
+        }
+    }
+    return nUps;
+}
+
+-(int)downvotes
+{
+    int nDowns = 0;
+    for(TLMovieVote * vote in self.votes)
+    {
+        if([vote.upvote boolValue] == NO)
+        {
+            nDowns++;
+        }
+    }
+    return nDowns;
+}
+
 -(TLMovieVote*)addVoteFromUsername:(NSString*)username isUpvote:(BOOL)bUpvote
 {
     return [self addVoteFromUsername:username isUpvote:bUpvote voteID:nil];
@@ -75,8 +97,6 @@
     [testObject setObject:self.title forKey:KEY_TITLE];
     [testObject setObject:self.aboutURL forKey:KEY_ABOUT_URL];
     [testObject setObject:self.posterURL forKey:KEY_POSTER_URL];
-    [testObject setObject:self.upvotes forKey:KEY_UPVOTES];
-    [testObject setObject:self.downvotes forKey:KEY_DOWNVOTES];
     [testObject saveInBackgroundWithBlock:nil];
 }
 
