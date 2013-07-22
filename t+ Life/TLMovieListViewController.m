@@ -41,7 +41,7 @@
 }
 -(void)sizeCollectionCells
 {
-    CGFloat posterWidth = _collectionView.frame.size.width - 120;
+    CGFloat posterWidth = _collectionView.frame.size.width - 90;
     CGFloat posterHeight = posterWidth * 1.50f;
     if(posterHeight > _collectionView.frame.size.height)
     {
@@ -52,6 +52,9 @@
     CGFloat space = self.view.frame.size.width - _flowLayout.itemSize.width;
     CGFloat cornerPeekWidth = 10.0f;
     _flowLayout.minimumInteritemSpacing = ((space / 2) - (cornerPeekWidth * 2));
+    
+    CGFloat vertPadding = _collectionView.frame.size.height / 2 - _flowLayout.itemSize.height / 2;
+    _flowLayout.sectionInset = UIEdgeInsetsMake(vertPadding, 40, vertPadding, 40);
 }
 
 - (void)didReceiveMemoryWarning

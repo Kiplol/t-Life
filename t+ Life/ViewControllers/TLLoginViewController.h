@@ -8,9 +8,10 @@
 
 #import <UIKit/UIKit.h>
 #import <GooglePlus/GooglePlus.h>
+#import "TLViewController.h"
 
 @class GPPSignInButton;
-@interface TLLoginViewController : UIViewController <GPPSignInDelegate> {
+@interface TLLoginViewController : TLViewController <GPPSignInDelegate> {
     
 }
 

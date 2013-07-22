@@ -46,10 +46,24 @@
                      posterURL:[data objectForKey:KEY_POSTER_URL]];
 }
 
+-(NSArray*)votesForCurrentRound
+{
+    NSMutableArray * currentVotes = [NSMutableArray arrayWithCapacity:self.votes.count];
+    for(TLMovieVote * vote in self.votes)
+    {
+        int voteRound = [vote.round intValue];
+        if(voteRound == [TLVoteManager getInstance].currentRound)
+        {
+            [currentVotes addObject:vote];
+        }
+    }
+    return currentVotes;
+}
 -(int)upvotes
 {
     int nUps = 0;
-    for(TLMovieVote * vote in self.votes)
+    NSArray * currentVotes = [self votesForCurrentRound];
+    for(TLMovieVote * vote in currentVotes)
     {
         if([vote.upvote boolValue])
         {
@@ -62,7 +76,8 @@
 -(int)downvotes
 {
     int nDowns = 0;
-    for(TLMovieVote * vote in self.votes)
+    NSArray * currentVotes = [self votesForCurrentRound];
+    for(TLMovieVote * vote in currentVotes)
     {
         if([vote.upvote boolValue] == NO)
         {

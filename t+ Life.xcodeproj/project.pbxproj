@@ -15,6 +15,7 @@
 		3785E9CA179A2B35001BD1B1 /* TLMovieView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3785E9C9179A2B35001BD1B1 /* TLMovieView.m */; };
 		3785E9CD179B1778001BD1B1 /* TLVoteManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 3785E9CC179B1778001BD1B1 /* TLVoteManager.m */; };
 		3785E9D6179B1EFE001BD1B1 /* TLMovieVote.m in Sources */ = {isa = PBXBuildFile; fileRef = 3785E9D5179B1EFE001BD1B1 /* TLMovieVote.m */; };
+		3785E9D9179C69FD001BD1B1 /* TLViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3785E9D8179C69FD001BD1B1 /* TLViewController.m */; };
 		37ADB531179099EB0048358D /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 37ADB530179099EB0048358D /* UIKit.framework */; };
 		37ADB533179099EB0048358D /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 37ADB532179099EB0048358D /* Foundation.framework */; };
 		37ADB535179099EB0048358D /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 37ADB534179099EB0048358D /* CoreGraphics.framework */; };
@@ -67,6 +68,8 @@
 		3785E9CC179B1778001BD1B1 /* TLVoteManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TLVoteManager.m; path = Manager/TLVoteManager.m; sourceTree = "<group>"; };
 		3785E9D4179B1EFE001BD1B1 /* TLMovieVote.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TLMovieVote.h; path = Models/TLMovieVote.h; sourceTree = "<group>"; };
 		3785E9D5179B1EFE001BD1B1 /* TLMovieVote.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TLMovieVote.m; path = Models/TLMovieVote.m; sourceTree = "<group>"; };
+		3785E9D7179C69FD001BD1B1 /* TLViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TLViewController.h; path = ViewControllers/TLViewController.h; sourceTree = "<group>"; };
+		3785E9D8179C69FD001BD1B1 /* TLViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TLViewController.m; path = ViewControllers/TLViewController.m; sourceTree = "<group>"; };
 		37ADB52D179099EB0048358D /* t+ Life.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "t+ Life.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		37ADB530179099EB0048358D /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		37ADB532179099EB0048358D /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -232,8 +235,6 @@
 				37ADB548179099EB0048358D /* MainStoryboard.storyboard */,
 				37ADB551179099EB0048358D /* first.png */,
 				37ADB553179099EB0048358D /* first@2x.png */,
-				37ADB555179099EB0048358D /* TLLunchReviewController.h */,
-				37ADB556179099EB0048358D /* TLLunchReviewController.m */,
 				3785E9C7179A205F001BD1B1 /* Views */,
 				3785E94C1799FED3001BD1B1 /* Manager */,
 				3785E9431799E582001BD1B1 /* Models */,
@@ -266,6 +267,10 @@
 				37ADB5EF1790A2B90048358D /* TLLoginViewController.m */,
 				37ADB54E179099EB0048358D /* TLMovieListViewController.h */,
 				37ADB54F179099EB0048358D /* TLMovieListViewController.m */,
+				3785E9D7179C69FD001BD1B1 /* TLViewController.h */,
+				3785E9D8179C69FD001BD1B1 /* TLViewController.m */,
+				37ADB555179099EB0048358D /* TLLunchReviewController.h */,
+				37ADB556179099EB0048358D /* TLLunchReviewController.m */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -370,6 +375,7 @@
 				3785E9CA179A2B35001BD1B1 /* TLMovieView.m in Sources */,
 				3785E9CD179B1778001BD1B1 /* TLVoteManager.m in Sources */,
 				3785E9D6179B1EFE001BD1B1 /* TLMovieVote.m in Sources */,
+				3785E9D9179C69FD001BD1B1 /* TLViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -95,7 +95,7 @@
     NSFetchRequest *request = [[NSFetchRequest alloc] init];
     [request setEntity:entityDesc];
     [request setReturnsObjectsAsFaults:NO];  //Is there a way to get around doing this?
-    //request.sortDescriptors = [NSArray arrayWithObject:[[NSSortDescriptor alloc] initWithKey:@"timestamp" ascending:NO]];
+    request.sortDescriptors = [NSArray arrayWithObject:[[NSSortDescriptor alloc] initWithKey:@"title" ascending:YES]];
     
     NSError *error;
     NSArray *objects = [context executeFetchRequest:request
@@ -112,6 +112,7 @@
 {
     PFQuery *query = [PFQuery queryWithClassName:@"TLMovieModel"];
     NSError * error;
+    [query orderBySortDescriptor:[[NSSortDescriptor alloc] initWithKey:@"title" ascending:YES]];
     NSArray * movies = [query findObjects:&error];
     NSMutableArray * remoteMovies = nil;
     if(movies)

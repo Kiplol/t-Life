@@ -58,6 +58,7 @@
     [testObject setObject:self.movie.title forKey:@"movie"];
     [testObject setObject:self.upvote forKey:@"upvote"];
     [testObject setObject:self.voteID forKey:@"voteID"];
+    [testObject setObject:self.round forKey:@"round"];
     [testObject saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
         if(error)
         {

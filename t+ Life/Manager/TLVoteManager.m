@@ -82,7 +82,7 @@
 {
     PFQuery *query = [PFQuery queryWithClassName:@"TLMovieVote"];
     [query whereKey:@"movie" equalTo:movie.title];
-    //[query whereKey:@"round" equalTo:[NSNumber numberWithInt:_currentRound]];
+    [query whereKey:@"round" equalTo:[NSNumber numberWithInt:_currentRound]];
     NSArray * voteIDs = [movie.votes valueForKey:@"voteID"];
     [query whereKey:@"voteID" notContainedIn:voteIDs];
     [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {

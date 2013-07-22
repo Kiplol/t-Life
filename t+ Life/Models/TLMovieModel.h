@@ -29,6 +29,7 @@
 -(void)saveToParse;
 -(TLMovieVote*)addVoteFromUsername:(NSString*)username isUpvote:(BOOL)bUpvote;
 -(TLMovieVote*)addVoteFromUsername:(NSString*)username isUpvote:(BOOL)bUpvote voteID:(NSString*)voteID;
+-(NSArray*)votesForCurrentRound;
 @end
 
 @interface TLMovieModel (CoreDataGeneratedAccessors)

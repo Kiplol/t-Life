@@ -7,8 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "TLViewController.h"
 
-@interface TLMovieListViewController : UIViewController <UICollectionViewDataSource, UICollectionViewDelegate> {
+@interface TLMovieListViewController : TLViewController <UICollectionViewDataSource, UICollectionViewDelegate> {
     IBOutlet UICollectionView * _collectionView;
     IBOutlet UICollectionViewFlowLayout * _flowLayout;
     NSArray * _arrMovies;

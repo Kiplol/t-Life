@@ -7,7 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "TLViewController.h"
 
-@interface TLLunchReviewController : UIViewController
+@interface TLLunchReviewController : TLViewController
 
 @end
