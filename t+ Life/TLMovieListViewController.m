@@ -27,6 +27,11 @@
     [self performSelectorInBackground:@selector(refreshMovieData) withObject:nil];
 }
 
+-(NSString*)nameBaseForBackgroundImage
+{
+    return @"movie";
+}
+
 -(void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
@@ -91,7 +96,6 @@
 {
     TLMovieViewCell * cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"movieCell" forIndexPath:indexPath];
     [cell updateWithMovie:[_arrMovies objectAtIndex:indexPath.row]];
-    cell.backgroundColor = [UIColor greenColor];
     [cell setNeedsLayout];
     return cell;
 }

@@ -16,6 +16,11 @@
 		3785E9CD179B1778001BD1B1 /* TLVoteManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 3785E9CC179B1778001BD1B1 /* TLVoteManager.m */; };
 		3785E9D6179B1EFE001BD1B1 /* TLMovieVote.m in Sources */ = {isa = PBXBuildFile; fileRef = 3785E9D5179B1EFE001BD1B1 /* TLMovieVote.m */; };
 		3785E9D9179C69FD001BD1B1 /* TLViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3785E9D8179C69FD001BD1B1 /* TLViewController.m */; };
+		3785E9E0179DB1A5001BD1B1 /* movie1.png in Resources */ = {isa = PBXBuildFile; fileRef = 3785E9DC179DB1A5001BD1B1 /* movie1.png */; };
+		3785E9E1179DB1A5001BD1B1 /* movie2.png in Resources */ = {isa = PBXBuildFile; fileRef = 3785E9DD179DB1A5001BD1B1 /* movie2.png */; };
+		3785E9E2179DB1A5001BD1B1 /* movie3.png in Resources */ = {isa = PBXBuildFile; fileRef = 3785E9DE179DB1A5001BD1B1 /* movie3.png */; };
+		3785E9E3179DB1A5001BD1B1 /* movie4.png in Resources */ = {isa = PBXBuildFile; fileRef = 3785E9DF179DB1A5001BD1B1 /* movie4.png */; };
+		3785E9E6179DB4B9001BD1B1 /* UIImage+ImageBlur.m in Sources */ = {isa = PBXBuildFile; fileRef = 3785E9E5179DB4B9001BD1B1 /* UIImage+ImageBlur.m */; };
 		37ADB531179099EB0048358D /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 37ADB530179099EB0048358D /* UIKit.framework */; };
 		37ADB533179099EB0048358D /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 37ADB532179099EB0048358D /* Foundation.framework */; };
 		37ADB535179099EB0048358D /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 37ADB534179099EB0048358D /* CoreGraphics.framework */; };
@@ -70,6 +75,12 @@
 		3785E9D5179B1EFE001BD1B1 /* TLMovieVote.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TLMovieVote.m; path = Models/TLMovieVote.m; sourceTree = "<group>"; };
 		3785E9D7179C69FD001BD1B1 /* TLViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TLViewController.h; path = ViewControllers/TLViewController.h; sourceTree = "<group>"; };
 		3785E9D8179C69FD001BD1B1 /* TLViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TLViewController.m; path = ViewControllers/TLViewController.m; sourceTree = "<group>"; };
+		3785E9DC179DB1A5001BD1B1 /* movie1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = movie1.png; sourceTree = "<group>"; };
+		3785E9DD179DB1A5001BD1B1 /* movie2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = movie2.png; sourceTree = "<group>"; };
+		3785E9DE179DB1A5001BD1B1 /* movie3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = movie3.png; sourceTree = "<group>"; };
+		3785E9DF179DB1A5001BD1B1 /* movie4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = movie4.png; sourceTree = "<group>"; };
+		3785E9E4179DB4B9001BD1B1 /* UIImage+ImageBlur.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+ImageBlur.h"; sourceTree = "<group>"; };
+		3785E9E5179DB4B9001BD1B1 /* UIImage+ImageBlur.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+ImageBlur.m"; sourceTree = "<group>"; };
 		37ADB52D179099EB0048358D /* t+ Life.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "t+ Life.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		37ADB530179099EB0048358D /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		37ADB532179099EB0048358D /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -180,6 +191,25 @@
 			name = Views;
 			sourceTree = "<group>";
 		};
+		3785E9DA179DB1A5001BD1B1 /* BGs */ = {
+			isa = PBXGroup;
+			children = (
+				3785E9DB179DB1A5001BD1B1 /* movie */,
+			);
+			path = BGs;
+			sourceTree = "<group>";
+		};
+		3785E9DB179DB1A5001BD1B1 /* movie */ = {
+			isa = PBXGroup;
+			children = (
+				3785E9DC179DB1A5001BD1B1 /* movie1.png */,
+				3785E9DD179DB1A5001BD1B1 /* movie2.png */,
+				3785E9DE179DB1A5001BD1B1 /* movie3.png */,
+				3785E9DF179DB1A5001BD1B1 /* movie4.png */,
+			);
+			path = movie;
+			sourceTree = "<group>";
+		};
 		37ADB524179099EB0048358D = {
 			isa = PBXGroup;
 			children = (
@@ -231,6 +261,8 @@
 			isa = PBXGroup;
 			children = (
 				37ADB53F179099EB0048358D /* TLAppDelegate.h */,
+				3785E9E4179DB4B9001BD1B1 /* UIImage+ImageBlur.h */,
+				3785E9E5179DB4B9001BD1B1 /* UIImage+ImageBlur.m */,
 				37ADB540179099EB0048358D /* TLAppDelegate.m */,
 				37ADB548179099EB0048358D /* MainStoryboard.storyboard */,
 				37ADB551179099EB0048358D /* first.png */,
@@ -278,6 +310,7 @@
 		37ED58661790B34800876C65 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				3785E9DA179DB1A5001BD1B1 /* BGs */,
 				37ED58671790B34800876C65 /* Icons */,
 			);
 			name = Resources;
@@ -353,6 +386,10 @@
 				37ADB559179099EB0048358D /* second.png in Resources */,
 				37ADB55B179099EB0048358D /* second@2x.png in Resources */,
 				37ED58941790C4AF00876C65 /* FacebookSDKResources.bundle in Resources */,
+				3785E9E0179DB1A5001BD1B1 /* movie1.png in Resources */,
+				3785E9E1179DB1A5001BD1B1 /* movie2.png in Resources */,
+				3785E9E2179DB1A5001BD1B1 /* movie3.png in Resources */,
+				3785E9E3179DB1A5001BD1B1 /* movie4.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -376,6 +413,7 @@
 				3785E9CD179B1778001BD1B1 /* TLVoteManager.m in Sources */,
 				3785E9D6179B1EFE001BD1B1 /* TLMovieVote.m in Sources */,
 				3785E9D9179C69FD001BD1B1 /* TLViewController.m in Sources */,
+				3785E9E6179DB4B9001BD1B1 /* UIImage+ImageBlur.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

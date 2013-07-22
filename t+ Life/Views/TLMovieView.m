@@ -21,10 +21,12 @@
         _darkBottom.backgroundColor = [UIColor colorWithWhite:0 alpha:0.5];
         [self addSubview:_darkBottom];
         _lblTitle = [[UILabel alloc] init];
+        _lblTitle.numberOfLines = 0;
         _lblTitle.backgroundColor = [UIColor clearColor];
         _lblTitle.textColor = [UIColor whiteColor];
         [self addSubview:_lblTitle];
         _lblVotes = [[UILabel alloc] init];
+        _lblVotes.numberOfLines = 0;
         _lblVotes.backgroundColor = [UIColor clearColor];
         _lblVotes.textColor = [UIColor whiteColor];
         [self addSubview:_lblVotes];
@@ -51,8 +53,11 @@
     _imgPoster.frame = self.bounds;
     
     //Title Label
+    CGRect tempTitleFrame = _lblTitle.frame;
+    tempTitleFrame.size.width = _imgPoster.bounds.size.width - 10;
+    _lblTitle.frame = tempTitleFrame;
     [_lblTitle sizeToFit];
-    _lblTitle.frame = CGRectMake(10, CGRectGetMaxY(_imgPoster.frame) - _lblTitle.frame.size.height - 10,
+    _lblTitle.frame = CGRectMake(5, CGRectGetMaxY(_imgPoster.frame) - _lblTitle.frame.size.height - 10,
                                  _lblTitle.frame.size.width, _lblTitle.frame.size.height);
     
     //Votes Label

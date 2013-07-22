@@ -8,6 +8,10 @@
 
 #import <UIKit/UIKit.h>
 
-@interface TLViewController : UIViewController
+@interface TLViewController : UIViewController {
+    UIImageView * _imgBackground;
+    NSMutableArray * _arrBGimages;
+}
 
+-(NSString*)nameBaseForBackgroundImage;
 @end

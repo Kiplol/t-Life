@@ -10,6 +10,7 @@
 #import "TLMovieVote.h"
 #import "TLMovieManager.h"
 #import "TLMovieModel.h"
+#import "TLAppDelegate.h"
 @implementation TLVoteManager
 @synthesize currentRound = _currentRound;
 @synthesize hasCurrentRound = _bHasCurrentRound;
@@ -91,5 +92,34 @@
         }
         completion((error == nil), error);
     }];
+}
+
+-(void)deleteVote:(TLMovieVote *)vote withSuccess:(PFBooleanResultBlock)success failure:(PFBooleanResultBlock)failure
+{
+    PFQuery *query = [PFQuery queryWithClassName:@"TLMovieVote"];
+    [query whereKey:@"voteID" equalTo:vote.voteID];
+    [query getFirstObjectInBackgroundWithBlock:^(PFObject *object, NSError *error) {
+        if(!object)
+        {
+            NSLog(@"The getFirstObject request failed.");
+            failure(NO, error);
+        }
+        else
+        {
+            [object deleteInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+                if (succeeded && !error) {
+                    NSLog(@"Vote deleted from parse");
+                    //Delete from CoreData
+                    TLAppDelegate * delegate = [UIApplication sharedApplication].delegate;
+                    [[delegate managedObjectContext] deleteObject:vote];
+                    success(succeeded, error);
+                } else {
+                    NSLog(@"error: %@", error);
+                    failure(succeeded, error);
+                }
+            }];
+            
+        }
+     }];
 }
 @end
