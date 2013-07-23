@@ -37,7 +37,6 @@ static NSString * const kClientID = @"912963317070.apps.googleusercontent.com";
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    
     [self.signInButton setBackgroundImage:[UIImage imageNamed:@"btn_signin.png"] forState:UIControlStateNormal];
     [self.signInButton setBackgroundImage:[UIImage imageNamed:@"btn_signin_pressed.png"] forState:UIControlStateHighlighted];
     [self.signInButton sizeToFit];
@@ -51,7 +50,11 @@ static NSString * const kClientID = @"912963317070.apps.googleusercontent.com";
                      nil];
     signIn.delegate = self;
     
-    [signIn trySilentAuthentication];
+    if([signIn trySilentAuthentication])
+    {
+        NSLog(@"They can be logged in automatically");
+        self.signInButton.enabled = NO;
+    }
 }
 
 -(void)viewWillAppear:(BOOL)animated
@@ -125,6 +128,7 @@ static NSString * const kClientID = @"912963317070.apps.googleusercontent.com";
     NSLog(@"Received error %@ and auth object %@",error, auth);
     if (error) {
         // Do some error handling here.
+        self.signInButton.enabled = YES;
     } else {
         GPPSignIn *signIn = [GPPSignIn sharedInstance];
         NSString * textPlusEmail = [signIn.authentication.userEmail lowercaseString];
@@ -138,6 +142,7 @@ static NSString * const kClientID = @"912963317070.apps.googleusercontent.com";
                                                 otherButtonTitles: nil];
             [al show];
             [signIn signOut];
+            self.signInButton.enabled = YES;
         }
         NSString * username = [textPlusEmail substringToIndex:[textPlusEmail rangeOfString:@"@"].location];
         [self refreshInterfaceBasedOnSignIn];
