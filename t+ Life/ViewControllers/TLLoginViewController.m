@@ -30,9 +30,17 @@ static NSString * const kClientID = @"912963317070.apps.googleusercontent.com";
     return self;
 }
 
+-(NSString*)nameBaseForBackgroundImage
+{
+    return @"login";
+}
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    [self.signInButton setBackgroundImage:[UIImage imageNamed:@"btn_signin.png"] forState:UIControlStateNormal];
+    [self.signInButton setBackgroundImage:[UIImage imageNamed:@"btn_signin_pressed.png"] forState:UIControlStateHighlighted];
+    [self.signInButton sizeToFit];
     
     GPPSignIn *signIn = [GPPSignIn sharedInstance];
     // You previously set kClientId in the "Initialize the Google+ client" step
@@ -46,6 +54,10 @@ static NSString * const kClientID = @"912963317070.apps.googleusercontent.com";
     [signIn trySilentAuthentication];
 }
 
+-(void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+}
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];

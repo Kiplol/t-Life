@@ -49,6 +49,11 @@
         _shield.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
         _shield.userInteractionEnabled = NO;
         [self addSubview:_shield];
+        //
+        _spinner = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhiteLarge];
+        [_shield addSubview:_spinner];
+        _spinner.center = _shield.center;
+        _spinner.autoresizingMask = UIViewAutoresizingFlexibleLeftMargin | UIViewAutoresizingFlexibleTopMargin |  UIViewAutoresizingFlexibleRightMargin | UIViewAutoresizingFlexibleBottomMargin;
         if(movie)
             [self updateWithMovie:movie];
     }
@@ -64,7 +69,7 @@
     
     _lblTitle.text = movie.title;
     
-    _lblVotes.text = [NSString stringWithFormat:@"%d", movie.upvotes];
+    _lblVotes.text = [NSString stringWithFormat:@"%d", (movie.upvotes - movie.downvotes)];
 }
 -(void)layoutSubviews
 {
@@ -89,9 +94,11 @@
     
     //Upvote Button
     _btnUpvote.backgroundColor = [UIColor orangeColor];
+    [_btnUpvote setTitle:@"^" forState:UIControlStateNormal];
     
     //Downvote Button
     _btnDownvote.backgroundColor = [UIColor blueColor];
+    [_btnDownvote setTitle:@"v" forState:UIControlStateNormal];
 
 }
 
@@ -110,14 +117,17 @@
     _btnUpvote.enabled = NO;
     _btnDownvote.enabled = NO;
     _shield.backgroundColor = [UIColor colorWithWhite:0 alpha:0.5];
+    [_spinner startAnimating];
     [[TLVoteManager getInstance] voteForMovie:_movie isUpvote:bUp withSuccess:^(BOOL succeeded, NSError *error) {
         //Success
+        [_spinner stopAnimating];
         _shield.backgroundColor = [UIColor clearColor];
         _btnUpvote.enabled = YES;
         _btnDownvote.enabled = YES;
         [self updateWithMovie:_movie];
     } failure:^(BOOL succeeded, NSError *error) {
         //Failure
+        [_spinner stopAnimating];
         _shield.backgroundColor = [UIColor redColor];
         [UIView animateWithDuration:0.2
                          animations:^{

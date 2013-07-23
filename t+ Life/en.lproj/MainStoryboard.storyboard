@@ -9,11 +9,11 @@
             <objects>
                 <viewController title="First" id="2" customClass="TLMovieListViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="16">
-                        <rect key="frame" x="0.0" y="64" width="320" height="455"/>
+                        <rect key="frame" x="0.0" y="64" width="320" height="504"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" minimumZoomScale="0.0" maximumZoomScale="0.0" dataMode="prototypes" id="lFW-JE-ryN">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="455"/>
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="504"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="40" minimumInteritemSpacing="40" id="jqi-bm-Fb6">
@@ -24,7 +24,7 @@
                                 </collectionViewFlowLayout>
                                 <cells>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="movieCell" id="H8C-MQ-njO" customClass="TLMovieViewCell">
-                                        <rect key="frame" x="0.0" y="92" width="180" height="270"/>
+                                        <rect key="frame" x="0.0" y="117" width="180" height="270"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                             <rect key="frame" x="0.0" y="0.0" width="180" height="270"/>
@@ -42,6 +42,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="First" image="first" id="7"/>
+                    <navigationItem key="navigationItem" id="xJ7-vz-KgJ"/>
                     <connections>
                         <outlet property="_collectionView" destination="lFW-JE-ryN" id="3zE-ar-Jsn"/>
                         <outlet property="_flowLayout" destination="jqi-bm-Fb6" id="WCj-7p-IS8"/>
@@ -56,18 +57,18 @@
             <objects>
                 <viewController title="Second" id="3" customClass="TLLunchReviewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="17">
-                        <rect key="frame" x="0.0" y="64" width="320" height="455"/>
+                        <rect key="frame" x="0.0" y="20" width="320" height="499"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" text="Second View" textAlignment="center" lineBreakMode="tailTruncation" minimumFontSize="10" id="22">
-                                <rect key="frame" x="20" y="101" width="280" height="43"/>
+                                <rect key="frame" x="20" y="111" width="280" height="43"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="36"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <textView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" userInteractionEnabled="NO" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" delaysContentTouches="NO" canCancelContentTouches="NO" minimumZoomScale="0.0" maximumZoomScale="0.0" bouncesZoom="NO" editable="NO" text="Loaded by the second view controller — an instance of TLSecondViewController — specified in the app delegate." textAlignment="center" id="23">
-                                <rect key="frame" x="20" y="184" width="280" height="88"/>
+                                <rect key="frame" x="20" y="206" width="280" height="88"/>
                                 <fontDescription key="fontDescription" type="system" size="system"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textView>
@@ -103,11 +104,12 @@
                         <rect key="frame" x="0.0" y="64" width="320" height="504"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="0Cd-An-qWa" customClass="GPPSignInButton">
-                                <rect key="frame" x="124" y="394" width="73" height="44"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="0Cd-An-qWa" customClass="GPPSignInButton">
+                                <rect key="frame" x="137" y="380" width="46" height="48"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                                <state key="normal" title="Button">
-                                    <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                <state key="normal">
+                                    <color key="titleColor" red="0.86666673421859741" green="0.28235295414924622" blue="0.26274511218070984" alpha="1" colorSpace="deviceRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <state key="highlighted">
@@ -125,7 +127,7 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <segue destination="4" kind="push" identifier="loginToHome" id="wQY-3k-wx3"/>
+                                    <segue destination="2" kind="push" identifier="loginToHome" id="Mzl-fx-M6i"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -169,16 +171,16 @@
         <class className="GPPSignInButton" superclassName="UIButton">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/GPPSignInButton.h"/>
         </class>
-        <class className="TLLoginViewController" superclassName="UIViewController">
+        <class className="TLLoginViewController" superclassName="TLViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/TLLoginViewController.h"/>
             <relationships>
                 <relationship kind="outlet" name="signInButton" candidateClass="GPPSignInButton"/>
             </relationships>
         </class>
-        <class className="TLLunchReviewController" superclassName="UIViewController">
+        <class className="TLLunchReviewController" superclassName="TLViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/TLLunchReviewController.h"/>
         </class>
-        <class className="TLMovieListViewController" superclassName="UIViewController">
+        <class className="TLMovieListViewController" superclassName="TLViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/TLMovieListViewController.h"/>
             <relationships>
                 <relationship kind="outlet" name="_collectionView" candidateClass="UICollectionView"/>
@@ -187,6 +189,9 @@
         </class>
         <class className="TLMovieViewCell" superclassName="UICollectionViewCell">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/TLMovieViewCell.h"/>
+        </class>
+        <class className="TLViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/TLViewController.h"/>
         </class>
         <class className="UICollectionReusableView" superclassName="UIView">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/UICollectionReusableView.h"/>
@@ -203,4 +208,7 @@
         <simulatedOrientationMetrics key="orientation"/>
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
+    <inferredMetricsTieBreakers>
+        <segue reference="Mzl-fx-M6i"/>
+    </inferredMetricsTieBreakers>
 </document>

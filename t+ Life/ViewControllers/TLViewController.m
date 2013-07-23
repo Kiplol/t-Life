@@ -10,7 +10,7 @@
 #import "UIImage+ImageBlur.h"
 
 @interface TLViewController ()
-
+-(void)setupBackground;
 @end
 
 @implementation TLViewController
@@ -28,11 +28,16 @@
 {
     [super viewDidLoad];
     _arrBGimages = [[NSMutableArray alloc] init];
+    [self setupBackground];
+}
+
+-(void)setupBackground
+{
     NSString * bgNameBase = [self nameBaseForBackgroundImage];
     int i = 1;
     while (YES)
     {
-        NSString * imgName = [NSString stringWithFormat:@"%@%d", bgNameBase, i];
+        NSString * imgName = [NSString stringWithFormat:@"%@%d.png", bgNameBase, i];
         i++;
         UIImage * tempImg = [UIImage imageNamed:imgName];
         if(!tempImg)
@@ -54,6 +59,22 @@
     //Set the background
     _imgBackground = [[UIImageView alloc] initWithImage:selectedImage];
     _imgBackground.autoresizingMask = UIViewAutoresizingFlexibleTopMargin | UIViewAutoresizingFlexibleLeftMargin | UIViewAutoresizingFlexibleBottomMargin | UIViewAutoresizingFlexibleRightMargin;
+    
+    CGFloat maxContainerDimension = MAX(self.view.bounds.size.width, self.view.bounds.size.height);
+    CGRect newBounds = CGRectMake(0, 0, 0, 0);
+    if(_imgBackground.frame.size.width > _imgBackground.frame.size.height)
+    {
+        CGFloat ratio = _imgBackground.frame.size.width / _imgBackground.frame.size.height;
+        newBounds = CGRectMake(0, 0, maxContainerDimension * ratio, maxContainerDimension);
+    }
+    else
+    {
+        CGFloat ratio = _imgBackground.frame.size.height / _imgBackground.frame.size.width;
+        newBounds = CGRectMake(0, 0, maxContainerDimension, maxContainerDimension * ratio);
+    }
+    
+    _imgBackground.frame = newBounds;
+    _imgBackground.center = CGPointMake(self.view.frame.size.width * 0.5f, self.view.frame.size.width * 0.5f);
     [self.view addSubview:_imgBackground];
     [self.view sendSubviewToBack:_imgBackground];
 }
@@ -61,6 +82,7 @@
 -(void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
+    [self.navigationController setNavigationBarHidden:YES];
     _imgBackground.center = CGPointMake(self.view.bounds.size.width * 0.5f, self.view.bounds.size.height * 0.5);
 }
 

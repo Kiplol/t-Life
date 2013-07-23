@@ -23,4 +23,5 @@
 -(NSArray*)votesForMovie:(TLMovieModel*)movie;
 -(void)updateVotesForMovie:(TLMovieModel*)movie completion:(PFBooleanResultBlock)completion;
 -(void)deleteVote:(TLMovieVote*)vote withSuccess:(PFBooleanResultBlock)success failure:(PFBooleanResultBlock)failure;
+-(TLMovieVote*)currentUsersVoteForMovie:(TLMovieModel*)movie;
 @end
