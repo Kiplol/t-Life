@@ -109,16 +109,6 @@
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
 {    
     TLMovieModel * movie = [_arrMovies objectAtIndex:indexPath.row];
-    _collectionView.backgroundColor = [UIColor grayColor];
-    [[TLVoteManager getInstance] voteForMovie:movie withSuccess:^(BOOL succeeded, NSError *error) {
-        //Success
-        _collectionView.backgroundColor = [UIColor greenColor];
-        [_collectionView reloadItemsAtIndexPaths:@[indexPath]];
-    } failure:^(BOOL succeeded, NSError *error) {
-        //Failure
-        _collectionView.backgroundColor = [UIColor redColor];
-    }];
-    return;
     NSURL * aboutURL = [NSURL URLWithString:movie.aboutURL];
     [[UIApplication sharedApplication] openURL:aboutURL];
 }

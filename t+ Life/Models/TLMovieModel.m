@@ -95,7 +95,7 @@
 {
     if([TLVoteManager getInstance].hasCurrentRound)
     {
-        TLMovieVote * vote = [[TLMovieVote alloc] initWithMovie:self username:username round:[TLVoteManager getInstance].currentRound isUpvote:YES voteID:voteID];
+        TLMovieVote * vote = [[TLMovieVote alloc] initWithMovie:self username:username round:[TLVoteManager getInstance].currentRound isUpvote:bUpvote voteID:voteID];
         TLAppDelegate * appDelegate = [UIApplication sharedApplication].delegate;
         [appDelegate saveContext];
         return vote;

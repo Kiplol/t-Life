@@ -45,9 +45,9 @@
     }
     return self;
 }
--(void)voteForMovie:(TLMovieModel *)movie withSuccess:(PFBooleanResultBlock)success failure:(PFBooleanResultBlock)failure
+-(void)voteForMovie:(TLMovieModel *)movie isUpvote:(BOOL)bUp withSuccess:(PFBooleanResultBlock)success failure:(PFBooleanResultBlock)failure
 {
-    TLMovieVote * vote = [movie addVoteFromUsername:[PFUser currentUser].username isUpvote:YES];
+    TLMovieVote * vote = [movie addVoteFromUsername:[PFUser currentUser].username isUpvote:bUp];
     if(vote)
     {
         [vote saveToParseSuccess:success failure:failure];

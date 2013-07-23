@@ -17,7 +17,7 @@
 @property (nonatomic, readonly) BOOL hasCurrentRound;
 
 +(TLVoteManager*)getInstance;
--(void)voteForMovie:(TLMovieModel*)movie withSuccess:(PFBooleanResultBlock)success failure:(PFBooleanResultBlock)failure;
+-(void)voteForMovie:(TLMovieModel*)movie isUpvote:(BOOL)bUp withSuccess:(PFBooleanResultBlock)success failure:(PFBooleanResultBlock)failure;
 -(NSArray*)votesForUsername:(NSString*)username;
 -(NSArray*)votesForUsername:(NSString *)username forRound:(int)round;
 -(NSArray*)votesForMovie:(TLMovieModel*)movie;

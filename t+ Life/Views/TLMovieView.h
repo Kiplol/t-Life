@@ -14,8 +14,17 @@
     UILabel * _lblTitle;
     UIView * _darkBottom;
     UILabel * _lblVotes;
+    
+    UIButton * _btnUpvote;
+    UIButton * _btnDownvote;
+    TLMovieModel * _movie;
+    
+    UIView * _shield;
+    UIActivityIndicatorView * _spinner;
 }
 
 -(id)initWithMovie:(TLMovieModel*)movie;
 -(void)updateWithMovie:(TLMovieModel*)movie;
+-(void)upvoteTapped:(id)sender;
+-(void)downvoteTapped:(id)sender;
 @end
