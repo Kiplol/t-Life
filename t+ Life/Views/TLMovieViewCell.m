@@ -10,6 +10,7 @@
 #import "TLMovieView.h"
 
 @implementation TLMovieViewCell
+@synthesize movieView = _movieView;
 
 - (id)initWithFrame:(CGRect)frame
 {

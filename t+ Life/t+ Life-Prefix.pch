@@ -8,9 +8,12 @@
 #warning "This project uses features only available in iOS SDK 5.0 and later."
 #endif
 
+typedef enum {movieVoteErrorAlreadyUpvoted = 430,
+    movieVoteErrorAlreadyDownvoted = 431} movieVoteErrorCode;
 #ifdef __OBJC__
     #import <UIKit/UIKit.h>
     #import <Foundation/Foundation.h>
     #import <CoreData/CoreData.h>
     #import <Parse/Parse.h>
+    #import "TSMessage.h"
 #endif

@@ -10,6 +10,11 @@
 #import "TLMovieModel.h"
 #import "TLVoteManager.h"
 @implementation TLMovieView
+@synthesize upvoteAction = _upvoteAction;
+@synthesize downvoteAction = _downvoteAction;
+@synthesize upvoteTarget = _upvoteTarget;
+@synthesize downvoteTarget = _downvoteTarget;
+@synthesize movie =_movie;
 
 -(id)initWithMovie:(TLMovieModel*)movie
 {
@@ -104,38 +109,59 @@
 
 -(void)upvoteTapped:(id)sender
 {
-    [self voteForMovieIsUpvote:YES];
+    if(_upvoteTarget && _upvoteAction)
+    {
+        [_upvoteTarget performSelector:_upvoteAction withObject:self];
+    }
 }
 
 -(void)downvoteTapped:(id)sender
 {
-    [self voteForMovieIsUpvote:NO];
+    if(_downvoteTarget && _downvoteAction)
+    {
+        [_downvoteTarget performSelector:_downvoteAction withObject:self];
+    }
 }
 
--(void)voteForMovieIsUpvote:(BOOL)bUp
+-(void)startBusyAnimation
 {
     _btnUpvote.enabled = NO;
     _btnDownvote.enabled = NO;
     _shield.backgroundColor = [UIColor colorWithWhite:0 alpha:0.5];
     [_spinner startAnimating];
-    [[TLVoteManager getInstance] voteForMovie:_movie isUpvote:bUp withSuccess:^(BOOL succeeded, NSError *error) {
-        //Success
+}
+-(void)endBusyAnimation
+{
         [_spinner stopAnimating];
         _shield.backgroundColor = [UIColor clearColor];
         _btnUpvote.enabled = YES;
         _btnDownvote.enabled = YES;
-        [self updateWithMovie:_movie];
-    } failure:^(BOOL succeeded, NSError *error) {
-        //Failure
-        [_spinner stopAnimating];
-        _shield.backgroundColor = [UIColor redColor];
-        [UIView animateWithDuration:0.2
-                         animations:^{
-                             _shield.backgroundColor = [UIColor clearColor];
-                         }];
-        _btnUpvote.enabled = YES;
-        _btnDownvote.enabled = YES;
-    }];
 }
+
+//-(void)voteForMovieIsUpvote:(BOOL)bUp
+//{
+//    _btnUpvote.enabled = NO;
+//    _btnDownvote.enabled = NO;
+//    _shield.backgroundColor = [UIColor colorWithWhite:0 alpha:0.5];
+//    [_spinner startAnimating];
+//    [[TLVoteManager getInstance] voteForMovie:_movie isUpvote:bUp withSuccess:^(BOOL succeeded, NSError *error) {
+//        //Success
+//        [_spinner stopAnimating];
+//        _shield.backgroundColor = [UIColor clearColor];
+//        _btnUpvote.enabled = YES;
+//        _btnDownvote.enabled = YES;
+//        [self updateWithMovie:_movie];
+//    } failure:^(BOOL succeeded, NSError *error) {
+//        //Failure
+//        [_spinner stopAnimating];
+//        _shield.backgroundColor = [UIColor redColor];
+//        [UIView animateWithDuration:0.2
+//                         animations:^{
+//                             _shield.backgroundColor = [UIColor clearColor];
+//                         }];
+//        _btnUpvote.enabled = YES;
+//        _btnDownvote.enabled = YES;
+//    }];
+//}
 
 @end

@@ -57,7 +57,8 @@
         if(bUp == existingVote.isUpvote)
         {
             NSString * errMsg = (bUp ? @"Already upvoted that movie" : @"Already downvoted that movie");
-            NSError * error = [[NSError alloc] initWithDomain:errMsg code:1 userInfo:nil];
+            movieVoteErrorCode errCode = bUp ? movieVoteErrorAlreadyUpvoted : movieVoteErrorAlreadyDownvoted;
+            NSError * error = [[NSError alloc] initWithDomain:errMsg code:errCode userInfo:nil];
             failure(NO, error);
             return;
         }

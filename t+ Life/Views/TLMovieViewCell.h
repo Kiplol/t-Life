@@ -14,5 +14,6 @@
     TLMovieView * _movieView;
 }
 
+@property (nonatomic, readonly) TLMovieView * movieView;
 -(void)updateWithMovie:(TLMovieModel*)movie;
 @end
