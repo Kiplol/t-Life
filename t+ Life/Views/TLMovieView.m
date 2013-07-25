@@ -42,12 +42,18 @@
         _lblVotes.textColor = [UIColor whiteColor];
         [self addSubview:_lblVotes];
         //
-        _btnUpvote = [[UIButton alloc] initWithFrame:CGRectMake(30, 0, 44, 44)];
+        _btnUpvote = [[UIButton alloc] initWithFrame:CGRectMake(10, 10, 2, 2)];
+        [_btnUpvote setImage:[UIImage imageNamed:@"btn_upvote.png"] forState:UIControlStateNormal];
+        [_btnUpvote sizeToFit];
         [_btnUpvote addTarget:self action:@selector(upvoteTapped:) forControlEvents:UIControlEventTouchUpInside];
+        _btnUpvote.alpha = 0.7f;
         [self addSubview: _btnUpvote];
         //
-        _btnDownvote = [[UIButton alloc] initWithFrame:CGRectMake(75, 0, 44, 44)];
+        _btnDownvote = [[UIButton alloc] initWithFrame:CGRectMake(CGRectGetMaxX(_btnUpvote.frame), 10, 32, 32)];
+        [_btnDownvote setImage:[UIImage imageNamed:@"btn_downvote.png"] forState:UIControlStateNormal];
+        [_btnDownvote sizeToFit];
         [_btnDownvote addTarget:self action:@selector(downvoteTapped:) forControlEvents:UIControlEventTouchUpInside];
+        _btnDownvote.alpha = 0.7f;
         [self addSubview:_btnDownvote];
         //
         _shield = [[UIView alloc] initWithFrame:self.bounds];
@@ -98,12 +104,12 @@
                                    CGRectGetMaxY(_imgPoster.frame) - _lblTitle.frame.origin.y + 10);
     
     //Upvote Button
-    _btnUpvote.backgroundColor = [UIColor orangeColor];
-    [_btnUpvote setTitle:@"^" forState:UIControlStateNormal];
-    
-    //Downvote Button
-    _btnDownvote.backgroundColor = [UIColor blueColor];
-    [_btnDownvote setTitle:@"v" forState:UIControlStateNormal];
+//    _btnUpvote.backgroundColor = [UIColor orangeColor];
+//    [_btnUpvote setTitle:@"^" forState:UIControlStateNormal];
+//    
+//    //Downvote Button
+//    _btnDownvote.backgroundColor = [UIColor blueColor];
+//    [_btnDownvote setTitle:@"v" forState:UIControlStateNormal];
 
 }
 

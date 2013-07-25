@@ -159,7 +159,7 @@
         [movieView endBusyAnimation];
                 [TSMessage showNotificationInViewController:self
                                                   withTitle:[[TLCopyGenerator getInstance] errorTitleForMovie:movieView.movie withCode:error.code]
-                                                withMessage:@"God..."
+                                                withMessage:[[TLCopyGenerator getInstance] errorMessageForMovie:movieView.movie withCode:error.code]
                                                    withType:TSMessageNotificationTypeError
                                                withDuration:2];
 
