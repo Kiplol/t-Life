@@ -72,9 +72,9 @@
     _imgPoster.image = img;
     [_imgPoster sizeToFit];
     
-    _lblTitle.text = movie.title;
+    _lblTitle.text = [NSString stringWithFormat:@"%d (+%d, -%d)", (movie.upvotes - movie.downvotes), movie.upvotes, movie.downvotes];
     
-    _lblVotes.text = [NSString stringWithFormat:@"%d", (movie.upvotes - movie.downvotes)];
+    //_lblVotes.text = [NSString stringWithFormat:@"%d", (movie.upvotes - movie.downvotes)];
 }
 -(void)layoutSubviews
 {

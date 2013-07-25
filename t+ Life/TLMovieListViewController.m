@@ -12,6 +12,7 @@
 #import "TLMovieViewCell.h"
 #import "TLMovieView.h"
 #import "TLVoteManager.h"
+#import "TLCopyGenerator.h"
 #import <Parse/Parse.h>
 
 @interface TLMovieListViewController ()
@@ -156,30 +157,12 @@
     } failure:^(BOOL succeeded, NSError *error) {
         //Failure
         [movieView endBusyAnimation];
-        switch (error.code) {
-            case movieVoteErrorAlreadyUpvoted:
-            {
                 [TSMessage showNotificationInViewController:self
-                                                  withTitle:@"You already upvoted this movie."
+                                                  withTitle:[[TLCopyGenerator getInstance] errorTitleForMovie:movieView.movie withCode:error.code]
                                                 withMessage:@"God..."
                                                    withType:TSMessageNotificationTypeError
                                                withDuration:2];
-            }
-                break;
-                
-            case movieVoteErrorAlreadyDownvoted:
-            {
-                [TSMessage showNotificationInViewController:self
-                                                  withTitle:@"You already downvoted this movie."
-                                                withMessage:@"Calm down."
-                                                   withType:TSMessageNotificationTypeError
-                                               withDuration:2];
-            }
-                break;
-                
-            default:
-                break;
-        }
+
     }];
 }
 
