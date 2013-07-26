@@ -13,6 +13,7 @@
 #import "TLMovieView.h"
 #import "TLVoteManager.h"
 #import "TLCopyGenerator.h"
+#import "BrowserViewController.h"
 #import <Parse/Parse.h>
 
 @interface TLMovieListViewController ()
@@ -135,7 +136,16 @@
 {
     TLMovieModel * movie = [_arrMovies objectAtIndex:indexPath.row];
     NSURL * aboutURL = [NSURL URLWithString:movie.aboutURL];
-    [[UIApplication sharedApplication] openURL:aboutURL];
+    
+    BrowserViewController * browserVC = [[BrowserViewController alloc] initWithUrls:aboutURL];
+    UINavigationController * navVC = [[UINavigationController alloc] initWithRootViewController:browserVC];
+    UIBarButtonItem * barbtn = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemDone target:self action:@selector(dismissModalViewControllerAnimated:)];
+    navVC.navigationBar.tintColor = [UIColor blackColor];
+    navVC.modalPresentationStyle = UIModalPresentationFormSheet;
+    [self presentViewController:navVC animated:YES completion:^{
+        //Completion
+        [browserVC.navigationItem setLeftBarButtonItem:barbtn animated:YES];
+    }];
 }
 
 #pragma mark - Private

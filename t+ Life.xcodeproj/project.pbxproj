@@ -88,6 +88,13 @@
 		37C7E1F317A03BFA00026DA6 /* btn_downvote@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 37C7E1EF17A03BFA00026DA6 /* btn_downvote@2x.png */; };
 		37C7E1F417A03BFA00026DA6 /* btn_upvote.png in Resources */ = {isa = PBXBuildFile; fileRef = 37C7E1F017A03BFA00026DA6 /* btn_upvote.png */; };
 		37C7E1F517A03BFA00026DA6 /* btn_upvote@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 37C7E1F117A03BFA00026DA6 /* btn_upvote@2x.png */; };
+		37C7E1FE17A23B1B00026DA6 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 37C7E1FD17A23B1B00026DA6 /* MessageUI.framework */; };
+		37C7E22117A2420400026DA6 /* BrowserViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 37C7E21917A2420400026DA6 /* BrowserViewController.m */; };
+		37C7E22217A2420400026DA6 /* BrowserViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 37C7E21A17A2420400026DA6 /* BrowserViewController.xib */; };
+		37C7E22317A2420400026DA6 /* left.png in Resources */ = {isa = PBXBuildFile; fileRef = 37C7E21B17A2420400026DA6 /* left.png */; };
+		37C7E22417A2420400026DA6 /* left@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 37C7E21C17A2420400026DA6 /* left@2x.png */; };
+		37C7E22617A2420400026DA6 /* right.png in Resources */ = {isa = PBXBuildFile; fileRef = 37C7E21F17A2420400026DA6 /* right.png */; };
+		37C7E22717A2420400026DA6 /* right@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 37C7E22017A2420400026DA6 /* right@2x.png */; };
 		37ED587B1790C05200876C65 /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 37ED587A1790C05200876C65 /* Parse.framework */; };
 		37ED587D1790C08600876C65 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 37ED587C1790C08600876C65 /* AudioToolbox.framework */; };
 		37ED58821790C0B100876C65 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 37ED587E1790C0B100876C65 /* CFNetwork.framework */; };
@@ -205,6 +212,14 @@
 		37C7E1EF17A03BFA00026DA6 /* btn_downvote@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "btn_downvote@2x.png"; sourceTree = "<group>"; };
 		37C7E1F017A03BFA00026DA6 /* btn_upvote.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = btn_upvote.png; sourceTree = "<group>"; };
 		37C7E1F117A03BFA00026DA6 /* btn_upvote@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "btn_upvote@2x.png"; sourceTree = "<group>"; };
+		37C7E1FD17A23B1B00026DA6 /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
+		37C7E21817A2420300026DA6 /* BrowserViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BrowserViewController.h; sourceTree = "<group>"; };
+		37C7E21917A2420400026DA6 /* BrowserViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BrowserViewController.m; sourceTree = "<group>"; };
+		37C7E21A17A2420400026DA6 /* BrowserViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BrowserViewController.xib; sourceTree = "<group>"; };
+		37C7E21B17A2420400026DA6 /* left.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = left.png; sourceTree = "<group>"; };
+		37C7E21C17A2420400026DA6 /* left@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "left@2x.png"; sourceTree = "<group>"; };
+		37C7E21F17A2420400026DA6 /* right.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = right.png; sourceTree = "<group>"; };
+		37C7E22017A2420400026DA6 /* right@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "right@2x.png"; sourceTree = "<group>"; };
 		37ED587A1790C05200876C65 /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Parse.framework; sourceTree = "<group>"; };
 		37ED587C1790C08600876C65 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		37ED587E1790C0B100876C65 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
@@ -226,6 +241,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				37C7E1FE17A23B1B00026DA6 /* MessageUI.framework in Frameworks */,
+				37ED58821790C0B100876C65 /* CFNetwork.framework in Frameworks */,
+				37ADB5ED17909B960048358D /* SystemConfiguration.framework in Frameworks */,
 				37ADB533179099EB0048358D /* Foundation.framework in Frameworks */,
 				3785E9451799E7D9001BD1B1 /* CoreData.framework in Frameworks */,
 				37ED589A1790C4F100876C65 /* Social.framework in Frameworks */,
@@ -234,13 +252,11 @@
 				37ED58911790C3E500876C65 /* Accounts.framework in Frameworks */,
 				37ED58881790C0C000876C65 /* QuartzCore.framework in Frameworks */,
 				37ED58891790C0C000876C65 /* StoreKit.framework in Frameworks */,
-				37ED58821790C0B100876C65 /* CFNetwork.framework in Frameworks */,
 				37ED58831790C0B100876C65 /* CoreLocation.framework in Frameworks */,
 				37ED58841790C0B100876C65 /* libz.1.1.3.dylib in Frameworks */,
 				37ED58851790C0B100876C65 /* MobileCoreServices.framework in Frameworks */,
 				37ADB535179099EB0048358D /* CoreGraphics.framework in Frameworks */,
 				37ED587D1790C08600876C65 /* AudioToolbox.framework in Frameworks */,
-				37ADB5ED17909B960048358D /* SystemConfiguration.framework in Frameworks */,
 				37ADB5EB17909B8F0048358D /* Security.framework in Frameworks */,
 				37ADB531179099EB0048358D /* UIKit.framework in Frameworks */,
 				37ADB6501790A4F70048358D /* GoogleOpenSource.framework in Frameworks */,
@@ -342,6 +358,7 @@
 		37ADB524179099EB0048358D = {
 			isa = PBXGroup;
 			children = (
+				37C7E1FD17A23B1B00026DA6 /* MessageUI.framework */,
 				37ADB536179099EB0048358D /* t+ Life */,
 				37ADB52F179099EB0048358D /* Frameworks */,
 				37ADB52E179099EB0048358D /* Products */,
@@ -440,6 +457,7 @@
 		37C7E1B8179F97F600026DA6 /* 3rd Party */ = {
 			isa = PBXGroup;
 			children = (
+				37C7E22817A2420900026DA6 /* BrowserViewController */,
 				37C7E1B9179F97FF00026DA6 /* TSMessage */,
 			);
 			name = "3rd Party";
@@ -481,6 +499,20 @@
 				37C7E1CC179F981900026DA6 /* NotificationButtonBackground@2x.png */,
 			);
 			name = TSMessage;
+			sourceTree = "<group>";
+		};
+		37C7E22817A2420900026DA6 /* BrowserViewController */ = {
+			isa = PBXGroup;
+			children = (
+				37C7E21817A2420300026DA6 /* BrowserViewController.h */,
+				37C7E21917A2420400026DA6 /* BrowserViewController.m */,
+				37C7E21A17A2420400026DA6 /* BrowserViewController.xib */,
+				37C7E21B17A2420400026DA6 /* left.png */,
+				37C7E21C17A2420400026DA6 /* left@2x.png */,
+				37C7E21F17A2420400026DA6 /* right.png */,
+				37C7E22017A2420400026DA6 /* right@2x.png */,
+			);
+			name = BrowserViewController;
 			sourceTree = "<group>";
 		};
 		37ED58661790B34800876C65 /* Resources */ = {
@@ -618,6 +650,11 @@
 				37C7E1F317A03BFA00026DA6 /* btn_downvote@2x.png in Resources */,
 				37C7E1F417A03BFA00026DA6 /* btn_upvote.png in Resources */,
 				37C7E1F517A03BFA00026DA6 /* btn_upvote@2x.png in Resources */,
+				37C7E22217A2420400026DA6 /* BrowserViewController.xib in Resources */,
+				37C7E22317A2420400026DA6 /* left.png in Resources */,
+				37C7E22417A2420400026DA6 /* left@2x.png in Resources */,
+				37C7E22617A2420400026DA6 /* right.png in Resources */,
+				37C7E22717A2420400026DA6 /* right@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -646,6 +683,7 @@
 				37C7E1E1179F985A00026DA6 /* TSMessageView.m in Sources */,
 				37C7E1E2179F986300026DA6 /* HexColor.m in Sources */,
 				37C7E1E517A0300700026DA6 /* TLCopyGenerator.m in Sources */,
+				37C7E22117A2420400026DA6 /* BrowserViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
