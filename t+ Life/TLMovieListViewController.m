@@ -13,6 +13,7 @@
 #import "TLMovieView.h"
 #import "TLVoteManager.h"
 #import "TLCopyGenerator.h"
+#import "BrowserViewController.h"
 #import <Parse/Parse.h>
 
 @interface TLMovieListViewController ()
@@ -135,7 +136,16 @@
 {
     TLMovieModel * movie = [_arrMovies objectAtIndex:indexPath.row];
     NSURL * aboutURL = [NSURL URLWithString:movie.aboutURL];
-    [[UIApplication sharedApplication] openURL:aboutURL];
+    
+    BrowserViewController * browserVC = [[BrowserViewController alloc] initWithUrls:aboutURL];
+    UINavigationController * navVC = [[UINavigationController alloc] initWithRootViewController:browserVC];
+    UIBarButtonItem * barbtn = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemDone target:self action:@selector(dismissModalViewControllerAnimated:)];
+    navVC.navigationBar.tintColor = [UIColor blackColor];
+    navVC.modalPresentationStyle = UIModalPresentationFormSheet;
+    [self presentViewController:navVC animated:YES completion:^{
+        //Completion
+        [browserVC.navigationItem setLeftBarButtonItem:barbtn animated:YES];
+    }];
 }
 
 #pragma mark - Private
@@ -171,9 +181,9 @@
 //    if (_lastMovieOffset > scrollView.contentOffset.x)
 //        _currentPage = MAX(_currentPage - 1, 0);
 //    else if (_lastMovieOffset < scrollView.contentOffset.x)
-//        _currentPage = MIN(_currentPage + 1, 5);
+//        _currentPage = MIN(_currentPage + 1, _arrMovies.count - 1);
 //    
-//    float questionOffset = (_flowLayout.itemSize.width + (2 * _flowLayout.minimumLineSpacing)) * _currentPage;
+//    float questionOffset = (_flowLayout.itemSize.width + (2 * _flowLayout.minimumLineSpacing - 40)) * _currentPage;
 //    _lastMovieOffset = questionOffset;
 //    [_collectionView setContentOffset:CGPointMake(questionOffset, 0) animated:YES];
 //}
