@@ -28,7 +28,7 @@
     switch (errCode) {
         case movieVoteErrorAlreadyUpvoted:
         {
-            int idx = arc4random() % 3;
+            int idx = arc4random() % 5;
             switch (idx) {
                 case 0:
                 {
@@ -50,13 +50,13 @@
                     
                 case 3:
                 {
-                    
+                    return @"Holy crap.";
                 }
                     break;
                     
                 case 4:
                 {
-                    
+                    return @"Stop upvoting the same movie.";
                 }
                     break;
                     
@@ -71,7 +71,7 @@
             break;
         case movieVoteErrorAlreadyDownvoted:
         {
-            int idx = arc4random() % 3;
+            int idx = arc4random() % 4;
             switch (idx) {
                 case 0:
                 {
@@ -99,7 +99,7 @@
                     
                 case 4:
                 {
-                    
+                    return @"Please control yourself.";
                 }
                     break;
                     
@@ -120,7 +120,7 @@
     switch (errCode) {
         case movieVoteErrorAlreadyUpvoted:
         {
-            int idx = arc4random() % 4;
+            int idx = arc4random() % 5;
             switch (idx) {
                 case 0:
                 {
@@ -142,13 +142,13 @@
                     
                 case 3:
                 {
-                    return nil;
+                    return @"Jesus Christ.";
                 }
                     break;
                     
                 case 4:
                 {
-                    
+                    return nil;
                 }
                     break;
                     
@@ -163,7 +163,7 @@
             break;
         case movieVoteErrorAlreadyDownvoted:
         {
-            int idx = arc4random() % 4;
+            int idx = arc4random() % 5;
             switch (idx) {
                 case 0:
                 {
@@ -185,13 +185,13 @@
                     
                 case 3:
                 {
-                    return nil;
+                    return @"I swear to God.";
                 }
                     break;
                     
                 case 4:
                 {
-                    
+                    return nil;
                 }
                     break;
                     
