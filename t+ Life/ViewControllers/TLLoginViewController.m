@@ -30,6 +30,16 @@ static NSString * const kClientID = @"912963317070.apps.googleusercontent.com";
     return self;
 }
 
+-(id)initWithCoder:(NSCoder *)aDecoder
+{
+    self = [super initWithCoder:aDecoder];
+    if(self)
+    {
+        
+    }
+    return self;
+}
+
 -(NSString*)nameBaseForBackgroundImage
 {
     return @"login";
@@ -37,9 +47,6 @@ static NSString * const kClientID = @"912963317070.apps.googleusercontent.com";
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    [self.signInButton setBackgroundImage:[UIImage imageNamed:@"btn_signin.png"] forState:UIControlStateNormal];
-    [self.signInButton setBackgroundImage:[UIImage imageNamed:@"btn_signin_pressed.png"] forState:UIControlStateHighlighted];
-    [self.signInButton sizeToFit];
     
     GPPSignIn *signIn = [GPPSignIn sharedInstance];
     // You previously set kClientId in the "Initialize the Google+ client" step
@@ -54,6 +61,13 @@ static NSString * const kClientID = @"912963317070.apps.googleusercontent.com";
     {
         NSLog(@"They can be logged in automatically");
         self.signInButton.enabled = NO;
+    }
+    else
+    {
+        [self.signInButton setBackgroundImage:[UIImage imageNamed:@"btn_signin.png"] forState:UIControlStateNormal];
+        [self.signInButton setBackgroundImage:[UIImage imageNamed:@"btn_signin_pressed.png"] forState:UIControlStateHighlighted];
+        [self.signInButton sizeToFit];
+        [self.signInButton addTarget:signIn action:@selector(authenticate) forControlEvents:UIControlEventTouchUpInside];
     }
 }
 

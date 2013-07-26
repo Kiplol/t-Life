@@ -15,6 +15,8 @@
     
 }
 
-@property (retain, nonatomic) IBOutlet GPPSignInButton *signInButton;
+//@property (retain, nonatomic) IBOutlet GPPSignInButton *signInButton;
+@property (retain, nonatomic) IBOutlet UIButton *signInButton;
+
 
 @end

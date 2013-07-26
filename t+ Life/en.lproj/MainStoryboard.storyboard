@@ -50,36 +50,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="10" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="653" y="-138"/>
-        </scene>
-        <!--Lunch Review Controller - Second-->
-        <scene sceneID="13">
-            <objects>
-                <viewController title="Second" id="3" customClass="TLLunchReviewController" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="17">
-                        <rect key="frame" x="0.0" y="20" width="320" height="499"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" text="Second View" textAlignment="center" lineBreakMode="tailTruncation" minimumFontSize="10" id="22">
-                                <rect key="frame" x="20" y="111" width="280" height="43"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                                <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="36"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <textView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" userInteractionEnabled="NO" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" delaysContentTouches="NO" canCancelContentTouches="NO" minimumZoomScale="0.0" maximumZoomScale="0.0" bouncesZoom="NO" editable="NO" text="Loaded by the second view controller — an instance of TLSecondViewController — specified in the app delegate." textAlignment="center" id="23">
-                                <rect key="frame" x="20" y="206" width="280" height="88"/>
-                                <fontDescription key="fontDescription" type="system" size="system"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textView>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                    </view>
-                    <tabBarItem key="tabBarItem" title="Second" image="second" id="6"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="12" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="653" y="498"/>
+            <point key="canvasLocation" x="117" y="192"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="xnN-iF-43f">
@@ -104,7 +75,7 @@
                         <rect key="frame" x="0.0" y="64" width="320" height="504"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="0Cd-An-qWa" customClass="GPPSignInButton">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="0Cd-An-qWa">
                                 <rect key="frame" x="137" y="380" width="46" height="48"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
@@ -142,43 +113,16 @@
             </objects>
             <point key="canvasLocation" x="-363" y="192"/>
         </scene>
-        <!--Tab Bar Controller-->
-        <scene sceneID="15">
-            <objects>
-                <tabBarController id="4" sceneMemberID="viewController">
-                    <navigationItem key="navigationItem" id="39R-l1-PD8"/>
-                    <nil key="simulatedBottomBarMetrics"/>
-                    <tabBar key="tabBar" contentMode="scaleToFill" id="5">
-                        <rect key="frame" x="0.0" y="431" width="320" height="49"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
-                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                    </tabBar>
-                    <connections>
-                        <segue destination="2" kind="relationship" relationship="viewControllers" id="26"/>
-                        <segue destination="3" kind="relationship" relationship="viewControllers" id="27"/>
-                    </connections>
-                </tabBarController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="14" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="132" y="180"/>
-        </scene>
     </scenes>
     <resources>
         <image name="first" width="16" height="16"/>
-        <image name="second" width="16" height="16"/>
     </resources>
     <classes>
-        <class className="GPPSignInButton" superclassName="UIButton">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/GPPSignInButton.h"/>
-        </class>
         <class className="TLLoginViewController" superclassName="TLViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/TLLoginViewController.h"/>
             <relationships>
-                <relationship kind="outlet" name="signInButton" candidateClass="GPPSignInButton"/>
+                <relationship kind="outlet" name="signInButton" candidateClass="UIButton"/>
             </relationships>
-        </class>
-        <class className="TLLunchReviewController" superclassName="TLViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/TLLunchReviewController.h"/>
         </class>
         <class className="TLMovieListViewController" superclassName="TLViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/TLMovieListViewController.h"/>
@@ -202,13 +146,13 @@
         <class className="UICollectionViewFlowLayout" superclassName="UICollectionViewLayout">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/UICollectionViewFlowLayout.h"/>
         </class>
+        <class className="UICollectionViewLayout" superclassName="NSObject">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/UICollectionViewLayout.h"/>
+        </class>
     </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
-    <inferredMetricsTieBreakers>
-        <segue reference="Mzl-fx-M6i"/>
-    </inferredMetricsTieBreakers>
 </document>
