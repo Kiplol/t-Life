@@ -171,9 +171,9 @@
 //    if (_lastMovieOffset > scrollView.contentOffset.x)
 //        _currentPage = MAX(_currentPage - 1, 0);
 //    else if (_lastMovieOffset < scrollView.contentOffset.x)
-//        _currentPage = MIN(_currentPage + 1, 5);
+//        _currentPage = MIN(_currentPage + 1, _arrMovies.count - 1);
 //    
-//    float questionOffset = (_flowLayout.itemSize.width + (2 * _flowLayout.minimumLineSpacing)) * _currentPage;
+//    float questionOffset = (_flowLayout.itemSize.width + (2 * _flowLayout.minimumLineSpacing - 40)) * _currentPage;
 //    _lastMovieOffset = questionOffset;
 //    [_collectionView setContentOffset:CGPointMake(questionOffset, 0) animated:YES];
 //}
