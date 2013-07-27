@@ -30,6 +30,7 @@
     [super viewDidLoad];
 	_arrMovies = [[TLMovieManager getInstance] getCachedMovies];
     [self performSelectorInBackground:@selector(refreshMovieData) withObject:nil];
+    self.view.backgroundColor = [UIColor blackColor];
 }
 
 -(NSString*)nameBaseForBackgroundImage
@@ -176,16 +177,24 @@
     }];
 }
 
+-(void)scrollViewDidScroll:(UIScrollView *)scrollView
+{
+    CGFloat width = _collectionView.contentSize.width;
+    CGFloat currentX = _collectionView.contentOffset.x;
+    float roundUp = (width/_arrMovies.count) * 0.6;
+    float ratio = (currentX + roundUp)/width;
+    int currentIdx = (ratio * _arrMovies.count);
+    TLMovieModel * currentMovie = [_arrMovies objectAtIndex:currentIdx];
+    if(currentMovie != _currentScrollMovie)
+    {
+        _currentScrollMovie = currentMovie;
+        [self setBackgroundImage:[UIImage imageWithData:_currentScrollMovie.posterImageData]];
+        _imgBackground.alpha = 0.5;
+    }
+}
+
 //- (void)scrollViewWillBeginDecelerating:(UIScrollView *)scrollView
 //{
-//    if (_lastMovieOffset > scrollView.contentOffset.x)
-//        _currentPage = MAX(_currentPage - 1, 0);
-//    else if (_lastMovieOffset < scrollView.contentOffset.x)
-//        _currentPage = MIN(_currentPage + 1, _arrMovies.count - 1);
-//    
-//    float questionOffset = (_flowLayout.itemSize.width + (2 * _flowLayout.minimumLineSpacing - 40)) * _currentPage;
-//    _lastMovieOffset = questionOffset;
-//    [_collectionView setContentOffset:CGPointMake(questionOffset, 0) animated:YES];
 //}
 
 @end

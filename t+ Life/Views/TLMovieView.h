@@ -12,7 +12,7 @@
 @interface TLMovieView : UIView {
     UIImageView * _imgPoster;
     UILabel * _lblTitle;
-    UIView * _darkBottom;
+    UIView * _infoBG;
     UILabel * _lblVotes;
     
     UIButton * _btnUpvote;

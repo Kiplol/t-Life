@@ -93,13 +93,13 @@
                     
                 case 3:
                 {
-                    
+                    return @"Please control yourself.";
                 }
                     break;
                     
                 case 4:
                 {
-                    return @"Please control yourself.";
+                    return nil;
                 }
                     break;
                     

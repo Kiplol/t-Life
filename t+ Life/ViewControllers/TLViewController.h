@@ -14,4 +14,5 @@
 }
 
 -(NSString*)nameBaseForBackgroundImage;
+-(void)setBackgroundImage:(UIImage*)bgImg;
 @end

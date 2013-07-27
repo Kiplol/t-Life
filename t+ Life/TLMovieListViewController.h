@@ -9,12 +9,12 @@
 #import <UIKit/UIKit.h>
 #import "TLViewController.h"
 
+@class TLMovieModel;
 @interface TLMovieListViewController : TLViewController <UICollectionViewDataSource, UICollectionViewDelegate> {
     IBOutlet UICollectionView * _collectionView;
     IBOutlet UICollectionViewFlowLayout * _flowLayout;
     NSArray * _arrMovies;
-    CGFloat _lastMovieOffset;
-    int _currentPage;
+    TLMovieModel * _currentScrollMovie;
 }
 
 -(void)refreshMovieData;
