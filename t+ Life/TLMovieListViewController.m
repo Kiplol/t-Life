@@ -29,6 +29,18 @@
 {
     [super viewDidLoad];
 	_arrMovies = [[TLMovieManager getInstance] getCachedMovies];
+    [TSMessage showNotificationInViewController:self
+                                      withTitle:@"Refreshing movie data"
+                                    withMessage:nil
+                                       withType:TSMessageNotificationTypeMessage
+                                   withDuration:TSMessageNotificationDurationEndless
+                                   withCallback:^{
+                                       //Callback
+                                   }
+                                withButtonTitle:nil
+                             withButtonCallback:nil
+                                     atPosition:TSMessageNotificationPositionTop
+                            canBeDismisedByUser:NO];
     [self performSelectorInBackground:@selector(refreshMovieData) withObject:nil];
 }
 
@@ -76,18 +88,6 @@
 
 -(void)refreshMovieData
 {
-    [TSMessage showNotificationInViewController:self
-                                      withTitle:@"Refreshing movie data"
-                                    withMessage:nil
-                                       withType:TSMessageNotificationTypeMessage
-                                   withDuration:TSMessageNotificationDurationEndless
-                                   withCallback:^{
-                                       //Callback
-                                   }
-                                withButtonTitle:nil
-                             withButtonCallback:nil
-                                     atPosition:TSMessageNotificationPositionTop
-                            canBeDismisedByUser:NO];
     _arrMovies = [[TLMovieManager getInstance] getAllMovies];
     [_collectionView reloadSections:[NSIndexSet indexSetWithIndex:0]];
     int nMovies = _arrMovies.count;
@@ -101,6 +101,10 @@
                 [TSMessage dismissActiveNotification];
             }
         }];
+    }
+    if(nMovies == 0)
+    {
+        [TSMessage dismissActiveNotification];
     }
 }
 
