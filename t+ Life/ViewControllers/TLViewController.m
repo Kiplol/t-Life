@@ -71,28 +71,40 @@
     if(selectedImage)
     {
         //Set the background
-        _imgBackground = [[UIImageView alloc] initWithImage:selectedImage];
-        _imgBackground.autoresizingMask = UIViewAutoresizingFlexibleTopMargin | UIViewAutoresizingFlexibleLeftMargin | UIViewAutoresizingFlexibleBottomMargin | UIViewAutoresizingFlexibleRightMargin;
-        [_imgBackground sizeToFit];
-        
-        CGFloat maxContainerDimension = MAX(self.view.bounds.size.width, self.view.bounds.size.height);
-        CGRect newBounds = CGRectMake(0, 0, 0, 0);
-        if(_imgBackground.frame.size.width > _imgBackground.frame.size.height)
-        {
-            CGFloat ratio = _imgBackground.frame.size.width / _imgBackground.frame.size.height;
-            newBounds = CGRectMake(0, 0, maxContainerDimension * ratio, maxContainerDimension);
-        }
-        else
-        {
-            CGFloat ratio = _imgBackground.frame.size.height / _imgBackground.frame.size.width;
-            newBounds = CGRectMake(0, 0, maxContainerDimension, maxContainerDimension * ratio);
-        }
-        
-        _imgBackground.frame = newBounds;
-        _imgBackground.center = CGPointMake(self.view.frame.size.width * 0.5f, self.view.frame.size.width * 0.5f);
-        [self.view addSubview:_imgBackground];
-        [self.view sendSubviewToBack:_imgBackground];
+        [self setBackgroundImage:selectedImage];
     }
+}
+
+-(void)setBackgroundImage:(UIImage*)bgImg
+{
+    if(_imgBackground == nil)
+    {
+        _imgBackground = [[UIImageView alloc] initWithImage:bgImg];
+        _imgBackground.autoresizingMask = UIViewAutoresizingFlexibleTopMargin | UIViewAutoresizingFlexibleLeftMargin | UIViewAutoresizingFlexibleBottomMargin | UIViewAutoresizingFlexibleRightMargin;
+        [self.view addSubview:_imgBackground];
+    }
+    else
+    {
+        [_imgBackground setImage:bgImg];
+    }
+    [_imgBackground sizeToFit];
+    
+    CGFloat maxContainerDimension = MAX(self.view.bounds.size.width, self.view.bounds.size.height);
+    CGRect newBounds = CGRectMake(0, 0, 0, 0);
+    if(_imgBackground.frame.size.width > _imgBackground.frame.size.height)
+    {
+        CGFloat ratio = _imgBackground.frame.size.width / _imgBackground.frame.size.height;
+        newBounds = CGRectMake(0, 0, maxContainerDimension * ratio, maxContainerDimension);
+    }
+    else
+    {
+        CGFloat ratio = _imgBackground.frame.size.height / _imgBackground.frame.size.width;
+        newBounds = CGRectMake(0, 0, maxContainerDimension, maxContainerDimension * ratio);
+    }
+    
+    _imgBackground.frame = newBounds;
+    _imgBackground.center = CGPointMake(self.view.frame.size.width * 0.5f, self.view.frame.size.width * 0.5f);
+    [self.view sendSubviewToBack:_imgBackground];
 }
 
 -(void)viewWillAppear:(BOOL)animated
