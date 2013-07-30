@@ -32,7 +32,9 @@
         self.posterURL = pURL;
         NSURL *url = [NSURL URLWithString:self.posterURL];
         NSData *data = [NSData dataWithContentsOfURL:url];
-        self.posterImageData = data;
+        UIImage * posterImage = [UIImage imageWithData:data scale:0.35];
+        NSData * shrunkData = UIImageJPEGRepresentation(posterImage, 0.7);
+        self.posterImageData = shrunkData;
         if (context != nil)
             [context insertObject:self];
     }
