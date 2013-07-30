@@ -157,6 +157,8 @@ static NSString * const kClientID = @"912963317070.apps.googleusercontent.com";
             [al show];
             [signIn signOut];
             self.signInButton.enabled = YES;
+            [self refreshInterfaceBasedOnSignIn];
+            return;
         }
         NSString * username = [textPlusEmail substringToIndex:[textPlusEmail rangeOfString:@"@"].location];
         [self refreshInterfaceBasedOnSignIn];

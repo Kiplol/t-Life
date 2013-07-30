@@ -177,11 +177,27 @@
     }];
 }
 
--(void)scrollViewDidScroll:(UIScrollView *)scrollView
+//-(void)scrollViewDidScroll:(UIScrollView *)scrollView
+//{
+//    CGFloat width = _collectionView.contentSize.width;
+//    CGFloat currentX = _collectionView.contentOffset.x;
+//    float roundUp = (width/_arrMovies.count) * 0.6;
+//    float ratio = (currentX + roundUp)/width;
+//    int currentIdx = (ratio * _arrMovies.count);
+//    TLMovieModel * currentMovie = [_arrMovies objectAtIndex:currentIdx];
+//    if(currentMovie != _currentScrollMovie)
+//    {
+//        _currentScrollMovie = currentMovie;
+//        [self setBackgroundImage:[UIImage imageWithData:_currentScrollMovie.posterImageData]];
+//        _imgBackground.alpha = 0.5;
+//    }
+//}
+
+- (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView
 {
     CGFloat width = _collectionView.contentSize.width;
     CGFloat currentX = _collectionView.contentOffset.x;
-    float roundUp = (width/_arrMovies.count) * 0.6;
+    float roundUp = _collectionView.frame.size.width * 0.5f;
     float ratio = (currentX + roundUp)/width;
     int currentIdx = (ratio * _arrMovies.count);
     TLMovieModel * currentMovie = [_arrMovies objectAtIndex:currentIdx];
@@ -193,8 +209,5 @@
     }
 }
 
-//- (void)scrollViewWillBeginDecelerating:(UIScrollView *)scrollView
-//{
-//}
 
 @end
