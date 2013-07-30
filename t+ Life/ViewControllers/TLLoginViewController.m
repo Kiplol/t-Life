@@ -74,6 +74,9 @@ static NSString * const kClientID = @"912963317070.apps.googleusercontent.com";
 -(void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
+    GPPSignIn *signIn = [GPPSignIn sharedInstance];
+    signIn.delegate = self;
+    [self refreshInterfaceBasedOnSignIn];
 }
 - (void)didReceiveMemoryWarning
 {
@@ -89,6 +92,7 @@ static NSString * const kClientID = @"912963317070.apps.googleusercontent.com";
         // Perform other actions here, such as showing a sign-out button
     } else {
         self.signInButton.hidden = NO;
+        self.signInButton.enabled = YES;
         // Perform other actions here
     }
 }
