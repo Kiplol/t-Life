@@ -80,7 +80,11 @@
     _imgPoster.image = img;
     [_imgPoster sizeToFit];
     
-    _lblVotes.text = [NSString stringWithFormat:@"%d (+%d, -%d)", (movie.upvotes - movie.downvotes), movie.upvotes, movie.downvotes];
+    NSString * votesString = [NSString stringWithFormat:@"%d (+%d, -%d)", (movie.upvotes - movie.downvotes), movie.upvotes, movie.downvotes];
+    NSMutableAttributedString *attributedString;
+    attributedString = [[NSMutableAttributedString alloc] initWithString:votesString];
+    [attributedString addAttribute:NSKernAttributeName value:@-1 range:NSMakeRange(0, votesString.length - 1)];
+    [_lblVotes setAttributedText:attributedString];
     
     //_lblVotes.text = [NSString stringWithFormat:@"%d", (movie.upvotes - movie.downvotes)];
 }
