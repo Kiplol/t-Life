@@ -150,21 +150,22 @@ static NSString * const kClientID = @"912963317070.apps.googleusercontent.com";
     } else {
         GPPSignIn *signIn = [GPPSignIn sharedInstance];
         NSString * textPlusEmail = [signIn.authentication.userEmail lowercaseString];
-        if([textPlusEmail rangeOfString:@"gogii.net"].location == NSNotFound && [textPlusEmail rangeOfString:@"textplusteam.com"].location == NSNotFound)
-        {
-            //This is not a textPlus person
-            UIAlertView * al = [[UIAlertView alloc] initWithTitle:@"Go away"
-                                                          message:@"You can only use this app with a textPus email"
-                                                         delegate:nil
-                                                cancelButtonTitle:@"Fine"
-                                                otherButtonTitles: nil];
-            [al show];
-            [signIn signOut];
-            self.signInButton.enabled = YES;
-            [self refreshInterfaceBasedOnSignIn];
-            return;
-        }
-        NSString * username = [textPlusEmail substringToIndex:[textPlusEmail rangeOfString:@"@"].location];
+//        if([textPlusEmail rangeOfString:@"gogii.net"].location == NSNotFound && [textPlusEmail rangeOfString:@"textplusteam.com"].location == NSNotFound)
+//        {
+//            //This is not a textPlus person
+//            UIAlertView * al = [[UIAlertView alloc] initWithTitle:@"Go away"
+//                                                          message:@"You can only use this app with a textPus email"
+//                                                         delegate:nil
+//                                                cancelButtonTitle:@"Fine"
+//                                                otherButtonTitles: nil];
+//            [al show];
+//            [signIn signOut];
+//            self.signInButton.enabled = YES;
+//            [self refreshInterfaceBasedOnSignIn];
+//            return;
+//        }
+//        NSString * username = [textPlusEmail substringToIndex:[textPlusEmail rangeOfString:@"@"].location];
+        NSString * username = textPlusEmail;
         [self refreshInterfaceBasedOnSignIn];
         if([self loginWithUsername:username email:textPlusEmail password:textPlusEmail])
         {
