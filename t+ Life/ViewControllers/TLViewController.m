@@ -83,28 +83,32 @@
         _imgBackground.autoresizingMask = UIViewAutoresizingFlexibleTopMargin | UIViewAutoresizingFlexibleLeftMargin | UIViewAutoresizingFlexibleBottomMargin | UIViewAutoresizingFlexibleRightMargin;
         [self.view addSubview:_imgBackground];
     }
-    else
-    {
-        [_imgBackground setImage:bgImg];
-    }
     [_imgBackground sizeToFit];
     
     CGFloat maxContainerDimension = MAX(self.view.bounds.size.width, self.view.bounds.size.height);
     CGRect newBounds = CGRectMake(0, 0, 0, 0);
-    if(_imgBackground.frame.size.width > _imgBackground.frame.size.height)
+    if(bgImg.size.width > bgImg.size.height)
     {
-        CGFloat ratio = _imgBackground.frame.size.width / _imgBackground.frame.size.height;
+        CGFloat ratio = bgImg.size.width / bgImg.size.height;
         newBounds = CGRectMake(0, 0, maxContainerDimension * ratio, maxContainerDimension);
     }
     else
     {
-        CGFloat ratio = _imgBackground.frame.size.height / _imgBackground.frame.size.width;
+        CGFloat ratio = bgImg.size.height / bgImg.size.width;
         newBounds = CGRectMake(0, 0, maxContainerDimension, maxContainerDimension * ratio);
     }
     
     _imgBackground.frame = newBounds;
     _imgBackground.center = CGPointMake(self.view.frame.size.width * 0.5f, self.view.frame.size.width * 0.5f);
-    [self.view sendSubviewToBack:_imgBackground];
+    [_imgBackground setImage:bgImg];
+    [UIView transitionWithView:self.view
+                      duration:0.2
+                       options:UIViewAnimationOptionTransitionCrossDissolve
+                    animations:^{
+                        [self.view sendSubviewToBack:_imgBackground];
+                    } completion:^(BOOL finished) {
+                        //Completion
+                    }];
 }
 
 -(void)viewWillAppear:(BOOL)animated
