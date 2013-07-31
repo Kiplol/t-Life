@@ -213,5 +213,25 @@
     }
 }
 
+-(IBAction)logoutTapped:(id)sender
+{
+    _collectionView.userInteractionEnabled = NO;
+    GPPSignIn *signIn = [GPPSignIn sharedInstance];
+    signIn.delegate = self;
+    [signIn disconnect];
+}
+
+-(void)didDisconnectWithError:(NSError *)error
+{
+    _collectionView.userInteractionEnabled = YES;
+    if(error)
+    {
+        
+    }
+    else
+    {
+        [self.navigationController popToRootViewControllerAnimated:YES];
+    }
+}
 
 @end

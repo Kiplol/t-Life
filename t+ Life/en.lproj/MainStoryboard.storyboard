@@ -38,12 +38,28 @@
                                     <outlet property="delegate" destination="2" id="zLQ-88-r4K"/>
                                 </connections>
                             </collectionView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="1I3-lt-DQU">
+                                <rect key="frame" x="246" y="-5" width="75" height="44"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <state key="normal" title="Logout">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="titleShadowColor" cocoaTouchSystemColor="darkTextColor"/>
+                                </state>
+                                <state key="highlighted">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="logoutTapped:" destination="2" eventType="touchUpInside" id="M8d-Oo-gXN"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="First" image="first" id="7"/>
                     <navigationItem key="navigationItem" id="xJ7-vz-KgJ"/>
                     <connections>
+                        <outlet property="_btnLogout" destination="1I3-lt-DQU" id="aCL-lm-lKS"/>
                         <outlet property="_collectionView" destination="lFW-JE-ryN" id="3zE-ar-Jsn"/>
                         <outlet property="_flowLayout" destination="jqi-bm-Fb6" id="WCj-7p-IS8"/>
                     </connections>
@@ -77,7 +93,7 @@
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="0Cd-An-qWa">
                                 <rect key="frame" x="137" y="380" width="46" height="48"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                 <state key="normal">
                                     <color key="titleColor" red="0.86666673421859741" green="0.28235295414924622" blue="0.26274511218070984" alpha="1" colorSpace="deviceRGB"/>
@@ -127,6 +143,8 @@
         <class className="TLMovieListViewController" superclassName="TLViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/TLMovieListViewController.h"/>
             <relationships>
+                <relationship kind="action" name="logoutTapped:"/>
+                <relationship kind="outlet" name="_btnLogout" candidateClass="UIButton"/>
                 <relationship kind="outlet" name="_collectionView" candidateClass="UICollectionView"/>
                 <relationship kind="outlet" name="_flowLayout" candidateClass="UICollectionViewFlowLayout"/>
             </relationships>
@@ -145,9 +163,6 @@
         </class>
         <class className="UICollectionViewFlowLayout" superclassName="UICollectionViewLayout">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/UICollectionViewFlowLayout.h"/>
-        </class>
-        <class className="UICollectionViewLayout" superclassName="NSObject">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/UICollectionViewLayout.h"/>
         </class>
     </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
